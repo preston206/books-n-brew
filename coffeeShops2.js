@@ -4,8 +4,8 @@ function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 47.708346, lng: -122.181258 },
         zoom: 13,
-        // mapTypeId: 'roadmap'
     });
+    $('.controls').show();
 
     infoWindow = new google.maps.InfoWindow();
     service = new google.maps.places.PlacesService(map);
