@@ -39,6 +39,7 @@ function initMap() {
 
         removeMarkers();
 
+
         // For each place, get the icon, name and location.
         var bounds = new google.maps.LatLngBounds();
         places.forEach(function (place) {
@@ -100,10 +101,11 @@ function initMap() {
                     Address: ${place.vicinity}`;
 
                     }
+
                     infoWindow.setContent(contentString);
 
                 })
-
+                infoWindow.setContent(null);
                 infoWindow.open(map, this);
 
             });
