@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Coffee shop search results.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Book and Coffee Shop Connector | Coffee Shop Search Results</title>
+    <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+
+    <header>
+        <h1>search for a coffee shop</h1>
+    </header>
+
+    <main>
+
+        <div id="map">
+        </div>
+
+        <div id="reviews">
+        </div>
+
+        <form id="coffee-shop-search">
+
+            <input type="text" class="controls" id="coffe-shop-input" placeholder="e.g. coffee in seattle" />
+
+        </form>
+
+    </main>
+
+    <footer>
+    </footer>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxDHNB-00Dm6piLxF8CBmFyPTXBrkYRis&libraries=places&callback=initMap"
+        async defer></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="coffeeShops2.js"></script>
+
+</body>
+
+</html>
