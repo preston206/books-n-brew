@@ -105,7 +105,7 @@ function initMap() {
                     infoWindow.setContent(contentString);
 
                 })
-                infoWindow.setContent(null);
+                infoWindow.setContent();
                 infoWindow.open(map, this);
 
             });
