@@ -1,8 +1,6 @@
 
 
-
-
-// grab book data
+// get book data
 function getData(search, callback) {
     var base_url = "https://www.googleapis.com/books/v1/volumes?";
     var query = {
@@ -35,9 +33,8 @@ function displayData(data) {
         results += "<p>no results</p>";
     }
 
-    $('.book-results').html(results);
+    $('#book-results').html(results);
 }
-
 
 
 // listen for form submit

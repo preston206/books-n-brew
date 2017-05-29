@@ -6,44 +6,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Coffee shop search results.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>Book and Coffee Shop Connector | Coffee Shop Search Results</title>
     <link rel="stylesheet" href="style.css" />
-
 </head>
 
 <body>
 
     <header>
-        <h1>search for a coffee shop</h1>
+        <ol class="app-state">
+            <li class="step-1 in-active">find an eBook to download.</li>
+            <li class="step-2 active">find a coffee shop to read at.</li>
+            <li class="step-3 in-active">purchase and get directions.</li>
+        </ol>
     </header>
 
     <main>
 
-        <div id="map">
+        <div class="question">
+            <span>Where would you like to read today?</span>
         </div>
 
-        <div id="reviews">
+        <div class="map-directions-intro tag-line">
+            <span>...when you're ready, we'll link you to your book selection and get directions.</span>
+            <input type="button" id="go-to-map-directions" onclick="location.href='final.html';" value="next step" />
         </div>
-
-        <div class="hide">
-            <form id="coffee-shop-search">
-                <input type="text" class="controls" id="coffe-shop-input" placeholder="e.g. coffee in seattle" />
-            </form>
-        </div>
+        <br />
 
     </main>
+
+    <section class="results-section">
+        <div id="map" class="results">
+        </div>
+
+        <div id="coffee-shop-reviews">
+        </div>
+    </section>
+
+    <section>
+        <div class="hide">
+            <form id="coffee-shop-search">
+                <input type="text" class="controls" id="coffe-shop-search" placeholder="e.g. coffee in seattle" />
+            </form>
+        </div>
+    </section>
 
     <footer>
     </footer>
 
+    <script src="state.js"></script>
     <script src="coffeeShops2.js"></script>
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxDHNB-00Dm6piLxF8CBmFyPTXBrkYRis&libraries=places&callback=initMap"
-        async defer></script>
-
+    <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxDHNB-00Dm6piLxF8CBmFyPTXBrkYRis&libraries=places&callback=initMap"
+        async defer></script>-->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-
 </body>
 
 </html>

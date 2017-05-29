@@ -4,17 +4,20 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Book and Coffee Shop Connector | Book Search Results</title>
-    <meta name="description" content="Book search results.">
+    <meta name="description" content="eBook search results.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <title>Book and Coffee Shop Connector | eBook Search Results</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
     <header>
-        <h1>search for an eBook</h1>
+        <ol class="app-state">
+            <li class="step-1 active">find an eBook to download.</li>
+            <li class="step-2 in-active">find a coffee shop to read at.</li>
+            <li class="step-3 in-active">purchase and get directions.</li>
+        </ol>
     </header>
 
     <main>
@@ -22,27 +25,28 @@
         <form id="book-search">
             <label for="book-input">What would you like to read today?</label>
             <br />
-            <input type="text" id="book-input" placeholder="e.g. author, genre" />
+            <input type="text" id="book-input" placeholder="e.g. author, topic, genre" />
             <button type="submit">submit</button>
-
-
-            <div class="book-results">
-                <!-- placeholder for book results search -->
-            </div>
-
-            <div class="coffee-shop-intro">
-                <p>when you're ready, we'll find the best cup of coffee near you.</p>
-            </div>
-
-            <input type="button" id="go-to-coffee_shops" onclick="location.href='coffeShops.html';" value="let's go!" />
         </form>
 
+        <div class="coffee-shop-intro tag-line">
+            <span>...when you're ready, we'll find the best cup of coffee near you.</span>
+            <input type="button" id="go-to-coffee-shops" onclick="location.href='coffeShops.html';" value="next step" />
+        </div>
+
     </main>
+
+    <section class="results-section">
+        <div id="book-results" class="results">
+            <!-- placeholder for book results search -->
+        </div>
+    </section>
 
     <footer>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="state.js"></script>
     <script src="bookResults.js"></script>
 </body>
 

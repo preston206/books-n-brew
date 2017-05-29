@@ -4,6 +4,7 @@ function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 47.708346, lng: -122.181258 },
         zoom: 13,
+        scaleControl: true
     });
     $('.controls').show();
 
@@ -11,7 +12,7 @@ function initMap() {
     service = new google.maps.places.PlacesService(map);
 
     // Create the search box and link it to the UI element.
-    var input = document.getElementById('coffe-shop-input');
+    var input = document.getElementById('coffe-shop-search');
     var searchBox = new google.maps.places.SearchBox(input);
     map.controls[google.maps.ControlPosition.TOP_CENTER].push(input);
 
@@ -87,11 +88,11 @@ function initMap() {
                         var results = "";
 
                         place.reviews.map(function (review) {
-                            results += `<div><span class="reviews-background">Review written about ${review.relative_time_description}</span><br />
-                    <span class="reviews-border reviews-background">Customer Rating: ${review.rating} stars</span><br />
+                            results += `<div><span class="coffee-reviews-background">Review written about ${review.relative_time_description}</span><br />
+                    <span class="coffee-reviews-border coffee-reviews-background">Customer Rating: ${review.rating} stars</span><br />
                         <span>${review.text}</span></div><br />`;
 
-                            $('#reviews').html(results);
+                            $('#coffee-shop-reviews').html(results);
                         });
 
                         contentString =
