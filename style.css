@@ -30,7 +30,9 @@ header {
 }
 
 .tag-line {
-    margin-top: 10px;
+    width: 1015px;
+    margin-top: 40px;
+    /*border: 1px solid lightgray;*/
 }
 
 main {
@@ -41,12 +43,39 @@ main {
     border-radius: 5px;*/
 }
 
+/*main#final-main {
+    margin-top: 15px;
+    width: 1000px;
+    height: 65px;
+}*/
+
 form {
     margin-top: 35px;
 }
 
-.results {
+#final-form {
     margin-top: 40px;
+}
+
+input#start, input#end {
+    width: 220px;
+}
+label#startLabel, label#endLabel {
+    margin-top: 20px;
+    margin-left: 15px;
+}
+
+button#finalBtn {
+    margin-top: 5px;
+}
+
+.results-section {
+    margin-top: 40px;
+    height: 700px;
+}
+
+.results {
+    /*margin-top: 40px;*/
     width: 750px;
     height: 700px;
     overflow: auto;
@@ -73,19 +102,81 @@ form {
     display: inline-block;
 }
 
-.question {
+.coffee-greeting {
     margin-bottom: 31px;
+    width: 690px;
+    /*border: 1px solid lightgray;*/
 }
 
-/*coffee shop google user reviews*/
-#coffee-shop-reviews {
-    margin-top: 40px;
-    width: 225px;
-    height: 700px;
+.empty21px {
+    height: 21px;
+}
+
+.final-greeting {
+    width: 1355px;
+    height: 95px;
+    /*padding-top: 0;*/
+    /*margin-bottom: 15px;*/
+    /*border: 1px solid lightgray;*/
+}
+
+.final-book {
     display: inline-block;
+    padding: 10px;
+
+    background-color: lightblue;
+}
+
+.final-book-name {
+    display: inline-block;
+}
+
+.final-coffee-shop {
+    display: inline-block;
+    padding: 10px;
+
+    background-color: pink;
+}
+
+.final-coffee-shop-name {
+    display: inline-block;
+}
+
+.final-coffee-shop-vicinity {
+    display: inline-block;
+}
+
+.side-panel-wrap {
+    display: inline-block;
+    height: 700px;
+}
+
+#coffee-shop-reviews {
+    /*margin-top: 40px;*/
+    width: 265px;
+    height: 700px;
+    padding: 7px;
+    /*display: inline-block;*/
     border: 1px solid lightgray;
     overflow: auto;
     border-radius: 8px;
+}
+
+.select-coffee-shop {
+    /*width: 225px;
+    height: 1px;*/
+    text-align: center;
+    margin-bottom: 2px;
+    /*display: inline-block;*/
+    /*border: 1px solid lightgray;
+    border-radius: 8px;*/
+}
+
+#select-coffee-button {
+    display: none;
+    float: right;
+    border-radius: 5px;
+    margin-right: 55px;
 }
 
 .coffee-reviews-border {
@@ -100,4 +191,24 @@ form {
     width: 325px;
     height: 27px;
     margin-top: 10px;
+}
+
+#text-directions {
+    width: 350px;
+    height: 700px;
+    padding: 7px;
+    /*display: inline-block;*/
+    border: 1px solid lightgray;
+    overflow: auto;
+    border-radius: 8px;
+}
+
+.far-right-panel {
+    display: inline-block;
+    width: 250px;
+    height: 700px;
+    padding: 7px;
+    border: 1px solid lightgray;
+    overflow: auto;
+    border-radius: 8px;
 }

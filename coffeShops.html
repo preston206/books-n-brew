@@ -22,25 +22,33 @@
 
     <main>
 
-        <div class="question">
+        <div class="coffee-greeting">
             <span>Where would you like to read today?</span>
+            <div class="empty21px">
+            </div>
         </div>
 
-        <div class="map-directions-intro tag-line">
+        <div class="tag-line">
             <span>...when you're ready, we'll link you to your book selection and get directions.</span>
             <input type="button" id="go-to-map-directions" onclick="location.href='final.html';" value="next step" />
+            <button id="select-coffee-button">select this coffee shop</button>
         </div>
-        <br />
-
     </main>
 
     <section class="results-section">
         <div id="map" class="results">
         </div>
 
-        <div id="coffee-shop-reviews">
+        <div class="side-panel-wrap">
+            <!--<div class="select-coffee-shop">
+                <button id="select-coffee-button">select this coffee shop</button>
+            </div>-->
+
+            <div id="coffee-shop-reviews">
+            </div>
         </div>
     </section>
+
 
     <section>
         <div class="hide">
@@ -53,11 +61,11 @@
     <footer>
     </footer>
 
-    <script src="state.js"></script>
-    <script src="coffeeShops2.js"></script>
-    <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxDHNB-00Dm6piLxF8CBmFyPTXBrkYRis&libraries=places&callback=initMap"
-        async defer></script>-->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="state.js"></script>
+    <script src="coffeeShops.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxDHNB-00Dm6piLxF8CBmFyPTXBrkYRis&libraries=places&callback=initMap"
+        async defer></script>
 </body>
 
 </html>

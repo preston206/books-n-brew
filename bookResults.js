@@ -7,7 +7,7 @@ function getData(search, callback) {
         apiKey: 'AIzaSyBZw_Dg7LohwJhi_O7ZOOz--qFthIyVlFM',
         q: search,
         filter: 'ebooks',
-        maxResults: 6,
+        maxResults: 7,
         orderBy: 'relevance'
     }
     console.log(query);
@@ -17,21 +17,35 @@ function getData(search, callback) {
 
 // display search results
 function displayData(data) {
-    var results = "";
+    var results = [];
 
     if (data.items) {
         data.items.map(function (book) {
-            results += `<div><span>${book.volumeInfo.title}</span><br />
+            let html = $(`<div><span>${book.volumeInfo.title}</span><br />
         <span>${book.volumeInfo.authors}</span><br />
         <a href="${book.volumeInfo.canonicalVolumeLink}" target="_blank">external link to book</a><br />
         <span>${book.saleInfo.saleability}</span><br />
+        <button type="button" id="bookSelect">select</button><br />
         <img src="${book.volumeInfo.imageLinks.thumbnail}" />
-        </div>`;
+        </div><br />`);
+
+            html.find('#bookSelect').click(function (event) {
+
+                state.selectedBook = book;
+                localStorage.state = JSON.stringify(state);
+                console.log("selected book", state.selectedBook);
+            })
+            results.push(html);
         })
     }
+
     else {
-        results += "<p>no results</p>";
+        let msg = $(`<p>no results</p>`);
+        results.push(msg);
     }
+
+    state.books = data.items;
+    localStorage.state = JSON.stringify(state);
 
     $('#book-results').html(results);
 }
@@ -41,5 +55,13 @@ function displayData(data) {
 $('#book-search').submit(function (event) {
     event.preventDefault();
     var userInput = $('form input').val();
+    state.bookSearchInput = userInput;
     getData(userInput, displayData);
+})
+
+$(function () {
+    if (state.books) {
+        displayData({ items: state.books })
+        $('form input').val(state.bookSearchInput);
+    }
 })

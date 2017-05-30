@@ -1,84 +1,132 @@
-var map;
 var infoWindow;
 
 function initMap() {
-    console.log("init");
-    // var mapFocus = new google.maps.LatLng(47.708346, -122.181258);
-    var mapFocus = new google.maps.LatLng(47.708346, -122.181258);
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: mapFocus,
+    var map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: 47.708346, lng: -122.181258 },
         zoom: 13,
-        scaleControl: true,
+        scaleControl: true
     });
-
-    request = {
-        location: mapFocus,
-        // radius: 8047, // about 5mi
-        radius: 850,
-        types: ['cafe'],
-    };
-
-    var input = document.getElementById('coffee-shop-input');
-    var searchBox = new google.maps.places.SearchBox(input);
-    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+    $('.controls').show();
 
     infoWindow = new google.maps.InfoWindow();
-
     service = new google.maps.places.PlacesService(map);
-    service.nearbySearch(request, callback);
-}
 
-function callback(results, status) {
-    if (status === google.maps.places.PlacesServiceStatus.OK) {
-        console.log("callback ok");
+    // Create the search box and link it to the UI element.
+    var input = document.getElementById('coffe-shop-search');
+    var searchBox = new google.maps.places.SearchBox(input);
+    map.controls[google.maps.ControlPosition.TOP_CENTER].push(input);
 
-        for (var i = 0; i < results.length; i++) {
-            createMarker(results[i]);
-        };
-    };
-}
-
-function createMarker(place) {
-    console.log("marker");
-    var marker = new google.maps.Marker({
-        map: map,
-        position: place.geometry.location,
+    // Bias the SearchBox results towards current map's viewport.
+    map.addListener('bounds_changed', function () {
+        searchBox.setBounds(map.getBounds());
     });
 
-    google.maps.event.addListener(marker, 'click', function () {
-        console.log("listener ok");
-        var contentString =
-            `<img src="${place.icon}" /><br />
+    var markers = [];
+
+    function removeMarkers() {
+        for (i = 0; i < markers.length; i++) {
+            markers[i].setMap(null);
+        }
+    }
+
+    // Listen for the event fired when the user selects a prediction and retrieve
+    // more details for that place.
+    searchBox.addListener('places_changed', function () {
+        var places = searchBox.getPlaces();
+
+        if (places.length == 0) {
+            return;
+        }
+
+        // clear map, clear reviews, hide button
+        removeMarkers();
+        $('#coffee-shop-reviews').empty();
+        $('#select-coffee-button').hide();
+
+
+        // For each place, get the icon, name and location.
+        var bounds = new google.maps.LatLngBounds();
+        places.forEach(function (place) {
+            if (!place.geometry) {
+                console.log("Returned place contains no geometry");
+                return;
+            }
+            var icon = {
+                url: place.icon,
+                size: new google.maps.Size(71, 71),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(17, 34),
+                scaledSize: new google.maps.Size(20, 20)
+            };
+
+            // Create a marker for each place.
+            // markers.push(new google.maps.Marker({
+            //     map: map,
+            //     icon: icon,
+            //     title: place.name,
+            //     position: place.geometry.location
+            // }));
+
+            marker = new google.maps.Marker({
+                map: map,
+                icon: icon,
+                position: place.geometry.location,
+            });
+
+            markers.push(marker);
+
+            if (place.geometry.viewport) {
+                // Only geocodes have viewport.
+                bounds.union(place.geometry.viewport);
+            } else {
+                bounds.extend(place.geometry.location);
+            }
+            // console.log("selected place 1", state.selectedCoffeeShop);
+            google.maps.event.addListener(marker, 'click', function () {
+
+                console.log("listener ok");
+
+
+                service.getDetails({ placeId: place.place_id }, function (place, status) {
+                    if (status == google.maps.places.PlacesServiceStatus.OK) {
+
+                        var results = [];
+                        // var coffeeShopSelect = 
+                        $('#select-coffee-button').click(function (event) {
+                            state.selectedCoffeeShop = place;
+                            localStorage.state = JSON.stringify(state);
+                            console.log("selected place 2", state.selectedCoffeeShop);
+                        });
+                        // results.push(coffeeShopSelect);
+
+                        place.reviews.map(function (review) {
+                            let html = $(`<div><span class="coffee-reviews-background">Review written ${review.relative_time_description}</span><br />
+                    <span class="coffee-reviews-border coffee-reviews-background">Customer Rating: ${review.rating} stars</span><br />
+                        <span>${review.text}</span></div><br />`);
+
+                            results.push(html);
+
+                        });
+                        $('#coffee-shop-reviews').html(results);
+
+                        contentString =
+                            `<img src="${place.icon}" /><br />
                     ${place.name}<br />
                     Rating: ${place.rating} stars<br />
-                    Address: ${place.vicinity}`
+                    Address: ${place.vicinity}`;
 
-        infoWindow.setContent(contentString);
-        infoWindow.open(map, this);
+                    }
+                    infoWindow.setContent(contentString);
 
-        service.getDetails({ placeId: place.place_id }, function (place, status) {
-            if (status == google.maps.places.PlacesServiceStatus.OK) {
+                })
+                $('#select-coffee-button').show();
+                infoWindow.setContent();
+                infoWindow.open(map, this);
 
-                // request.placeId = place.place_id;
+            });
 
-                var results = "";
+        });
+        map.fitBounds(bounds);
 
-                place.reviews.map(function (review) {
-                    results += `<div><span class="reviews-background">Review written about ${review.relative_time_description}</span><br />
-                    <span class="reviews-border reviews-background">Customer Rating: ${review.rating} stars</span><br />
-                        <span>${review.text}</span></div><br />`;
-
-                    // results.find('span.customer-rating').addClass('rating-border');
-
-                    $('#reviews').html(results);
-                });
-            }
-        })
     });
 }
-
-$('#coffee-shop-search').submit(function (event) {
-    event.preventDefault();
-    var userInput = $('form input').val();
-
-})

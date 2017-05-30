@@ -1,14 +1,9 @@
-var state = {
-    step: 0,
-    book: {
-        name: null,
-        price: null,
-        url: null
-    },
-    shop: {
-        name: null,
-        address: null
-    },
+var state;
 
-    
+if (localStorage.state) {
+    state = JSON.parse(localStorage.state);
+}
+
+else {
+    state = {};
 }
