@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Connecting people with eBooks and coffee shops.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Book and Coffee Shop Connector</title>
@@ -14,20 +13,112 @@
 
     <header>
         <h1 class="title">Book and Coffee Shop Connector</h1>
-        <p class="tag-line">Bringing together two things you love- books and coffee.</p>
-    </header>
-
-    <main>
+        <p class="subtitle">Bringing together two things you love- books and coffee.</p>
 
         <ol class="app-state">
             <li class="step-1">find an eBook to download.</li>
             <li class="step-2">find a coffee shop to read at.</li>
             <li class="step-3">purchase and get directions.</li>
         </ol>
+    </header>
 
-        <form>
-            <input type="button" id="go-to-books" onclick="location.href='bookResults.html';" value="let's get started!" />
-        </form>
+    <main>
+
+        <!-- landing page -->
+        <div class="landing-page">
+            <form id="landing-form">
+                <button type="button" id="landingBtn" onclick="" value="go-to-books">let's get started!</button>
+            </form>
+        </div>
+
+        <!-- book search page -->
+        <div class="find-book-page">
+            <form id="book-search-form">
+                <label for="book-input">What would you like to read today?</label>
+                <br />
+                <input type="text" id="book-input" placeholder="e.g. author, topic, genre" />
+                <button type="button" id="booksBtn" onclick="" value="go-to-coffee-shops">submit</button>
+            </form>
+
+            <div class="tag-line">
+                <span class="book-search-tag">select a book.</span>
+                <!--<button type="button" id="go-to-coffee-shops" onclick="location.href='coffeShops.html';">next step</button>-->
+            </div>
+
+            <div class="book-results">
+                <div class="results">
+                </div>
+            </div>
+        </div>
+
+        <!-- coffee shop search page -->
+        <div class="find-coffee-shop-page">
+            <div class="tag-line">
+                <span class="coffee-shop-search-tag">select a coffee shop.</span>
+                <!--<input type="button" id="go-to-map-directions" onclick="location.href='final.html';" value="next step" />-->
+                <button type="button" id="coffeeShopBtn" onclick="" value="go-to-final">select this coffee shop</button>
+            </div>
+
+            <div class="coffee-shop-results">
+                <div id="map" class="results">
+                </div>
+
+                <div class="side-panel-wrap">
+                    <div id="coffee-shop-reviews">
+                    </div>
+                </div>
+            </div>
+
+            <div class="hide">
+                <!-- wrapped in a div, and form is below map, to prevent it from appearing on the page before the map renders -->
+                <form id="coffee-shop-search">
+                    <label for="coffee-shop-input">Where would you like to read today?</label>
+                    <br />
+                    <input type="text" class="controls" id="coffee-shop-input" placeholder="e.g. coffee in seattle" />
+                </form>
+            </div>
+        </div>
+
+        <!-- final page -->
+        <div class="final-page">
+            <div class="selected-results">
+                <div class="selected-book">
+                    <span>The eBook you selected is: <div class="selected-book-name"></div></span><br />
+                    <span>You can purchase and download the eBook here:</span><br />
+                    <div class="selected-book-url"></div>
+                </div>
+
+                <div class="selected-coffee-shop">
+                    <span>The coffee shop you selected is: <div class="selected-coffee-shop-name"></div></span><br />
+                    <span>At: <div class="selected-coffee-shop-vicinity"></div></span><br />
+                    <span>Use the input fields at the right to get directions.</span>
+                </div>
+            </div>
+
+            <div class="final-page-map-results">
+
+                <div id="map" class="results">
+                </div>
+
+                <div class="side-panel-wrap">
+                    <div id="text-directions">
+                    </div>
+                </div>
+
+                <div class="far-right-panel">
+
+                    <p>enter in your address to get directions to the coffee shop you selected.</p>
+
+                    <form id="final-form">
+                        <label for="start" id="startLabel">start</label>
+                        <input type="text" id="start" /><br /><br />
+                        <label for="end" id="endLabel">end</label>
+                        <input type="text" id="end" disabled/><br />
+                        <button type="button" id="finalBtn">submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
 
     </main>
 
@@ -37,6 +128,10 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="state.js"></script>
     <script src="index.js"></script>
+    <!--<script src="bookResults.js"></script>
+    <script src="coffeeShops.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxDHNB-00Dm6piLxF8CBmFyPTXBrkYRis&libraries=places&callback=initMap"
+        async defer></script>-->
 </body>
 
 </html>
