@@ -12,7 +12,7 @@ function initMap() {
     service = new google.maps.places.PlacesService(map);
 
     // Create the search box and link it to the UI element.
-    var input = document.getElementById('coffe-shop-search');
+    var input = document.getElementById('coffee-shop-input');
     var searchBox = new google.maps.places.SearchBox(input);
     map.controls[google.maps.ControlPosition.TOP_CENTER].push(input);
 
@@ -41,7 +41,7 @@ function initMap() {
         // clear map, clear reviews, hide button
         removeMarkers();
         $('#coffee-shop-reviews').empty();
-        $('#select-coffee-button').hide();
+        $('#coffeeShopBtn').attr('disabled', true);
 
 
         // For each place, get the icon, name and location.
@@ -92,17 +92,17 @@ function initMap() {
 
                         var results = [];
                         // var coffeeShopSelect = 
-                        $('#select-coffee-button').click(function (event) {
+                        $('#coffeeShopBtn').click(function (event) {
                             state.selectedCoffeeShop = place;
                             localStorage.state = JSON.stringify(state);
-                            console.log("selected place 2", state.selectedCoffeeShop);
+                            // console.log("selected place 2", state.selectedCoffeeShop);
                         });
                         // results.push(coffeeShopSelect);
 
                         place.reviews.map(function (review) {
-                            let html = $(`<div><span class="coffee-reviews-background">Review written ${review.relative_time_description}</span><br />
-                    <span class="coffee-reviews-border coffee-reviews-background">Customer Rating: ${review.rating} stars</span><br />
-                        <span>${review.text}</span></div><br />`);
+                            let html = $(`<div><span class="coffee-review-background">Review written ${review.relative_time_description}</span><br />
+                    <span class="coffee-review-border coffee-reviews-background">Customer Rating: ${review.rating} stars</span>
+                        <div class="coffee-review-text">${review.text}</div></div><br />`);
 
                             results.push(html);
 
@@ -119,7 +119,7 @@ function initMap() {
                     infoWindow.setContent(contentString);
 
                 })
-                $('#select-coffee-button').show();
+                $('#coffeeShopBtn').attr('disabled', false);
                 infoWindow.setContent();
                 infoWindow.open(map, this);
 

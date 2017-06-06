@@ -25,14 +25,14 @@
     <main>
 
         <!-- landing page -->
-        <div class="landing-page">
+        <div class="landing-page ">
             <form id="landing-form">
                 <button type="button" id="landingBtn" onclick="" value="go-to-books">let's get started!</button>
             </form>
         </div>
 
         <!-- book search page -->
-        <div class="find-book-page">
+        <div class="find-book-page ">
             <form id="book-search-form">
                 <label for="book-input">What would you like to read today?</label>
                 <br />
@@ -40,47 +40,40 @@
                 <button type="button" id="booksBtn" onclick="" value="go-to-coffee-shops">submit</button>
             </form>
 
-            <div class="tag-line">
-                <span class="book-search-tag">select a book.</span>
-                <!--<button type="button" id="go-to-coffee-shops" onclick="location.href='coffeShops.html';">next step</button>-->
-            </div>
-
-            <div class="book-results">
-                <div class="results">
+            <div class="book-results-container">
+                <span class="book-search-tagline">select a book.</span><br />
+                <div class="book-results">
+                    <!-- results from google books API get inserted here -->
                 </div>
             </div>
         </div>
 
         <!-- coffee shop search page -->
         <div class="find-coffee-shop-page">
-            <div class="tag-line">
-                <span class="coffee-shop-search-tag">select a coffee shop.</span>
-                <!--<input type="button" id="go-to-map-directions" onclick="location.href='final.html';" value="next step" />-->
-                <button type="button" id="coffeeShopBtn" onclick="" value="go-to-final">select this coffee shop</button>
+            <div class="hide">
+                <!-- wrapped in a hidden div to prevent it from appearing on the page before the map renders -->
+                <form id="coffee-shop-search">
+                    <input type="text" class="controls" id="coffee-shop-input" placeholder="e.g. coffee in seattle" />
+                </form>
             </div>
 
-            <div class="coffee-shop-results">
-                <div id="map" class="results">
+            <div class="coffee-shop-results-container">
+                <span class="coffee-shop-search-tagline-1">Where would you like to read today?</span>
+                <span class="coffee-shop-search-tagline-2">select a coffee shop.</span><br />
+                <div id="map" class="coffee-shop-results">
+                    <!-- google map gets inserted here -->
                 </div>
 
                 <div class="side-panel-wrap">
+                    <button type="button" id="coffeeShopBtn" onclick="" value="go-to-final" disabled>select this coffee shop</button>
                     <div id="coffee-shop-reviews">
                     </div>
                 </div>
             </div>
-
-            <div class="hide">
-                <!-- wrapped in a div, and form is below map, to prevent it from appearing on the page before the map renders -->
-                <form id="coffee-shop-search">
-                    <label for="coffee-shop-input">Where would you like to read today?</label>
-                    <br />
-                    <input type="text" class="controls" id="coffee-shop-input" placeholder="e.g. coffee in seattle" />
-                </form>
-            </div>
         </div>
 
         <!-- final page -->
-        <div class="final-page">
+        <div class="final-page ">
             <div class="selected-results">
                 <div class="selected-book">
                     <span>The eBook you selected is: <div class="selected-book-name"></div></span><br />
@@ -95,26 +88,24 @@
                 </div>
             </div>
 
-            <div class="final-page-map-results">
-
-                <div id="map" class="results">
+            <div class="final-page-results-container">
+                <div id="map" class="final-page-results">
+                    <!-- google map w/ directions gets inserted here -->
                 </div>
 
-                <div class="side-panel-wrap">
-                    <div id="text-directions">
-                    </div>
+                <div class="text-directions-panel">
+                    <!-- google directions in text form gets inserted here -->
                 </div>
 
-                <div class="far-right-panel">
-
+                <div class="address-input-panel">
+                    <!-- user inputs their location here, if not auto-detected -->
                     <p>enter in your address to get directions to the coffee shop you selected.</p>
-
                     <form id="final-form">
                         <label for="start" id="startLabel">start</label>
                         <input type="text" id="start" /><br /><br />
                         <label for="end" id="endLabel">end</label>
                         <input type="text" id="end" disabled/><br />
-                        <button type="button" id="finalBtn">submit</button>
+                        <button type="button" id="finalBtn" onclick="" value="get-directions">submit</button>
                     </form>
                 </div>
             </div>
@@ -128,10 +119,10 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="state.js"></script>
     <script src="index.js"></script>
-    <!--<script src="bookResults.js"></script>
+    <script src="bookResults.js"></script>
     <script src="coffeeShops.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxDHNB-00Dm6piLxF8CBmFyPTXBrkYRis&libraries=places&callback=initMap"
-        async defer></script>-->
+        async defer></script>
 </body>
 
 </html>

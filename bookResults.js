@@ -25,11 +25,11 @@ function displayData(data) {
         <span>${book.volumeInfo.authors}</span><br />
         <a href="${book.volumeInfo.canonicalVolumeLink}" target="_blank">external link to book</a><br />
         <span>${book.saleInfo.saleability}</span><br />
-        <button type="button" id="bookSelect">select</button><br />
+        <button type="button" id="select-book">select</button><br />
         <img src="${book.volumeInfo.imageLinks.thumbnail}" />
         </div><br />`);
 
-            html.find('#bookSelect').click(function (event) {
+            html.find('#select-book').click(function (event) {
 
                 state.selectedBook = book;
                 localStorage.state = JSON.stringify(state);
@@ -47,14 +47,21 @@ function displayData(data) {
     state.books = data.items;
     localStorage.state = JSON.stringify(state);
 
-    $('#book-results').html(results);
+    $('.book-results').html(results);
 }
 
 
 // listen for form submit
-$('#book-search').submit(function (event) {
-    event.preventDefault();
-    var userInput = $('form input').val();
+// $('#book-search').submit(function (event) {
+//     event.preventDefault();
+//     var userInput = $('form input').val();
+//     state.bookSearchInput = userInput;
+//     getData(userInput, displayData);
+// })
+
+$('#book-search-form').click(function (event) {
+    // event.preventDefault();
+    var userInput = $('#book-input').val();
     state.bookSearchInput = userInput;
     getData(userInput, displayData);
 })

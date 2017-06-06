@@ -8,59 +8,48 @@
     /*visibility: hidden;*/
 }
 
+.app-state {
+    margin-top: 40px;
+}
+
 .active {
     color: lightgreen;
     font-size: 18px;
 }
 
-/*.app-state li {
-    color: lightgray;
-}*/
-
 .in-active {
     color: lightgray;
 }
 
-header {
-    /*width: 600px;*/
-    /*height: 65px;*/
+/*header {
+    width: 600px;
+    height: 65px;
     border: 1px solid black;
-    /*border-radius: 5px;*/
-}
+    border-radius: 5px;
+}*/
 
 .title {
     margin-top: 0;
     margin-bottom: 0;
 }
 
-.subtitle {
-    width: 1015px;
-    margin-top: 40px;
-    /*border: 1px solid lightgray;*/
-}
+/*.subtitle {
+    margin-top: 10px;
+}*/
 
 .tag-line {
-    width: 1015px;
+    /*width: 600px;*/
     margin-top: 40px;
     /*border: 1px solid lightgray;*/
 }
 
 main {
     margin-top: 15px;
-    /*width: 1000px;*/
-    /*height: 65px;*/
-    border: 1px solid black;
-    /*border-radius: 5px;*/
 }
 
-/*main#final-main {
-    margin-top: 15px;
-    width: 1000px;
-    height: 65px;
-}*/
-
-form {
-    margin-top: 35px;
+#landing-form {
+    margin-top: 40px;
+    margin-bottom: 20px;
 }
 
 #final-form {
@@ -79,12 +68,7 @@ button#finalBtn {
     margin-top: 5px;
 }
 
-.book-results {
-    /*margin-top: 40px;*/
-    height: 700px;
-}
-
-.results {
+.book-results, .coffee-shop-results, .final-page-results {
     /*margin-top: 40px;*/
     width: 750px;
     height: 700px;
@@ -97,22 +81,15 @@ button#finalBtn {
     display: inline-block;
 }
 
-.empty21px {
-    height: 21px;
-}
-
 .selected-results {
-    /*width: 1355px;*/
-    height: 95px;
-    /*padding-top: 0;*/
-    /*margin-bottom: 15px;*/
-    /*border: 1px solid lightgray;*/
+    margin-bottom: 5px;
 }
 
 .selected-book {
-    display: inline-block;
+    height: 100px;
+    /*display: inline-block;*/
     padding: 10px;
-
+    float: left;
     background-color: lightblue;
 }
 
@@ -121,9 +98,10 @@ button#finalBtn {
 }
 
 .selected-coffee-shop {
+    height: 100px;
+    margin-left: 5px;
     display: inline-block;
     padding: 10px;
-
     background-color: pink;
 }
 
@@ -138,12 +116,14 @@ button#finalBtn {
 .side-panel-wrap {
     display: inline-block;
     height: 700px;
+    width: 352px;
+    text-align: center;
 }
 
 #coffee-shop-reviews {
     /*margin-top: 40px;*/
     width: 350px;
-    height: 700px;
+    height: 675px;
     padding: 7px;
     /*display: inline-block;*/
     border: 1px solid lightgray;
@@ -151,29 +131,28 @@ button#finalBtn {
     border-radius: 8px;
 }
 
-.select-coffee-shop {
-    /*width: 225px;
-    height: 1px;*/
-    text-align: center;
-    margin-bottom: 2px;
-    /*display: inline-block;*/
-    /*border: 1px solid lightgray;
-    border-radius: 8px;*/
-}
-
 #coffeeShopBtn {
-    display: none;
-    float: right;
+    /*display: none;*/
+    /*float: right;*/
+    /*position: relative;
+    left: 480px;
+    bottom: 3px;*/
     border-radius: 5px;
-    margin-right: 55px;
+    /*margin-right: 55px;*/
+    margin-bottom: 3px;
 }
 
-.coffee-reviews-border {
+.coffee-review-border {
     border-bottom: 1px solid black;
 }
 
-.coffee-reviews-background {
+.coffee-review-background {
     background-color: #cccccc;
+}
+
+.coffee-review-text {
+    text-align: left;
+    padding-left: 4px;
 }
 
 #coffe-shop-search {
@@ -182,17 +161,17 @@ button#finalBtn {
     margin-top: 10px;
 }
 
-#text-directions {
+.text-directions-panel {
     width: 350px;
     height: 700px;
     padding: 7px;
-    /*display: inline-block;*/
+    display: inline-block;
     border: 1px solid lightgray;
     overflow: auto;
     border-radius: 8px;
 }
 
-.far-right-panel {
+.address-input-panel {
     display: inline-block;
     width: 250px;
     height: 700px;
