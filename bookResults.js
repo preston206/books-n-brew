@@ -10,7 +10,7 @@ function getData(search, callback) {
         maxResults: 7,
         orderBy: 'relevance'
     }
-    console.log(query);
+    console.log("query string", query);
     $.getJSON(base_url, query, callback);
 }
 
@@ -30,10 +30,12 @@ function displayData(data) {
         </div><br />`);
 
             html.find('#select-book').click(function (event) {
-
                 state.selectedBook = book;
-                localStorage.state = JSON.stringify(state);
-                console.log("selected book", state.selectedBook);
+                // localStorage.state = JSON.stringify(state);
+                $('.find-book-page').addClass('hide');
+                $('.find-coffee-shop-page').removeClass('hide-map');
+                headerState(2);
+                console.log("state.selectedBook", state.selectedBook);
             })
             results.push(html);
         })
@@ -45,30 +47,30 @@ function displayData(data) {
     }
 
     state.books = data.items;
-    localStorage.state = JSON.stringify(state);
-
+    // localStorage.state = JSON.stringify(state);
+    console.log("state.books", state.books);
     $('.book-results').html(results);
 }
 
 
 // listen for form submit
-// $('#book-search').submit(function (event) {
-//     event.preventDefault();
-//     var userInput = $('form input').val();
-//     state.bookSearchInput = userInput;
-//     getData(userInput, displayData);
-// })
-
-$('#book-search-form').click(function (event) {
-    // event.preventDefault();
-    var userInput = $('#book-input').val();
+$('#book-search-form').submit(function (event) {
+    event.preventDefault();
+    var userInput = $('form input').val();
     state.bookSearchInput = userInput;
     getData(userInput, displayData);
 })
 
+// $('#book-search-form').click(function (event) {
+//     event.preventDefault();
+//     var userInput = $('#book-input').val();
+//     state.bookSearchInput = userInput;
+//     getData(userInput, displayData);
+// })
+
 $(function () {
     if (state.books) {
         displayData({ items: state.books })
-        $('form input').val(state.bookSearchInput);
+        // $('form input').val(state.bookSearchInput);
     }
 })

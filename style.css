@@ -5,7 +5,10 @@
 
 .hide {
     display: none;
-    /*visibility: hidden;*/
+}
+
+.hide-map {
+    visibility: hidden;
 }
 
 .app-state {
@@ -79,6 +82,18 @@ button#finalBtn {
 
 #map {
     display: inline-block;
+}
+
+#final-map {
+    display: inline-block;
+}
+
+/*.find-coffee-shop-page {
+    display: none;
+}*/
+
+#coffee-shop-input {
+    display: none;
 }
 
 .selected-results {
@@ -161,7 +176,7 @@ button#finalBtn {
     margin-top: 10px;
 }
 
-.text-directions-panel {
+#text-directions-panel {
     width: 350px;
     height: 700px;
     padding: 7px;

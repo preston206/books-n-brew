@@ -25,14 +25,14 @@
     <main>
 
         <!-- landing page -->
-        <div class="landing-page ">
+        <div class="landing-page">
             <form id="landing-form">
-                <button type="button" id="landingBtn" onclick="" value="go-to-books">let's get started!</button>
+                <button type="button" id="landingBtn" onclick="goToBooks()" value="go-to-books">let's get started!</button>
             </form>
         </div>
 
         <!-- book search page -->
-        <div class="find-book-page ">
+        <div class="find-book-page hide">
             <form id="book-search-form">
                 <label for="book-input">What would you like to read today?</label>
                 <br />
@@ -49,11 +49,11 @@
         </div>
 
         <!-- coffee shop search page -->
-        <div class="find-coffee-shop-page">
+        <div class="find-coffee-shop-page hide-map">
             <div class="hide">
                 <!-- wrapped in a hidden div to prevent it from appearing on the page before the map renders -->
                 <form id="coffee-shop-search">
-                    <input type="text" class="controls" id="coffee-shop-input" placeholder="e.g. coffee in seattle" />
+                    <input type="text" id="coffee-shop-input" placeholder="e.g. coffee in seattle" />
                 </form>
             </div>
 
@@ -73,7 +73,7 @@
         </div>
 
         <!-- final page -->
-        <div class="final-page ">
+        <div class="final-page hide-map">
             <div class="selected-results">
                 <div class="selected-book">
                     <span>The eBook you selected is: <div class="selected-book-name"></div></span><br />
@@ -89,11 +89,11 @@
             </div>
 
             <div class="final-page-results-container">
-                <div id="map" class="final-page-results">
+                <div id="final-map" class="final-page-results">
                     <!-- google map w/ directions gets inserted here -->
                 </div>
 
-                <div class="text-directions-panel">
+                <div id="text-directions-panel">
                     <!-- google directions in text form gets inserted here -->
                 </div>
 
@@ -117,12 +117,16 @@
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="state.js"></script>
+    <!--<script src="state.js"></script>-->
     <script src="index.js"></script>
     <script src="bookResults.js"></script>
     <script src="coffeeShops.js"></script>
+
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxDHNB-00Dm6piLxF8CBmFyPTXBrkYRis&libraries=places&callback=initMap"
-        async defer></script>
+        async></script>
+    <script src="final.js"></script>
+    <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxDHNB-00Dm6piLxF8CBmFyPTXBrkYRis&libraries=places&callback=initFinalMap"
+        defer></script>-->
 </body>
 
 </html>

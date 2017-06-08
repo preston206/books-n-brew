@@ -1,27 +1,40 @@
 console.log("selected coffee shop", state.selectedCoffeeShop);
-console.log(state.selectedCoffeeShop.formatted_address);
+// console.log(state.selectedCoffeeShop.formatted_address);
 console.log("selected book", state.selectedBook);
 
-insertBookAndCoffeeShopInfo();
+function insertBookAndCoffeeShopInfo() {
+    $('.selected-book-name').html(state.selectedBook.volumeInfo.title);
+    $('.selected-book-url').html(`<a href="${state.selectedBook.saleInfo.buyLink}" target="_blank">https://play.google.com/store/books/</a>`);
+    $('.selected-coffee-shop-name').html(state.selectedCoffeeShop.name);
+    $('.selected-coffee-shop-vicinity').html(state.selectedCoffeeShop.vicinity);
+}
 
-function initMap() {
-    var latitude = state.selectedCoffeeShop.geometry.location.lat;
-    var longitude = state.selectedCoffeeShop.geometry.location.lng;
-    var focus = { lat: latitude, lng: longitude };
+
+
+// init map
+function initFinalMap() {
+    insertBookAndCoffeeShopInfo();
+    // var latitude = state.selectedCoffeeShop.geometry.location.lat;
+    // var longitude = state.selectedCoffeeShop.geometry.location.lng;
+    // console.log("lat lng", state.selectedCoffeeShop.geometry.location);
+    // var latitude = place.geometry.location.lat;
+    // var longitude = place.geometry.location.lng;
+    // var focus = { lat: latitude, lng: longitude };
+    // var focus = {lat: 47.708346, lng: -122.181258};
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer;
-    var map = new google.maps.Map(document.getElementById('map'), {
+    var map = new google.maps.Map(document.getElementById('final-map'), {
         zoom: 14,
-        center: focus
+        center: state.selectedCoffeeShop.geometry.location
     });
 
     marker = new google.maps.Marker({
         map: map,
-        position: focus
+        position: state.selectedCoffeeShop.geometry.location
     });
 
     directionsDisplay.setMap(map);
-    directionsDisplay.setPanel(document.getElementById('text-directions'));
+    directionsDisplay.setPanel(document.getElementById('text-directions-panel'));
 
     var onChangeHandler = function () {
         calculateAndDisplayRoute(directionsService, directionsDisplay);
@@ -46,9 +59,3 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
     });
 }
 
-function insertBookAndCoffeeShopInfo() {
-    $('.final-book-name').html(state.selectedBook.volumeInfo.title);
-    $('.final-book-url').html(`<a href="${state.selectedBook.saleInfo.buyLink}" target="_blank">https://play.google.com/store/books/</a>`);
-    $('.final-coffee-shop-name').html(state.selectedCoffeeShop.name);
-    $('.final-coffee-shop-vicinity').html(state.selectedCoffeeShop.vicinity);
-}

@@ -1,13 +1,15 @@
 var infoWindow;
 
+//TODO add "coffee in" to search
+
 function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 47.708346, lng: -122.181258 },
         zoom: 13,
         scaleControl: true
     });
-    $('.controls').show();
-
+    $('#coffee-shop-input').show();
+    console.log("map init");
     infoWindow = new google.maps.InfoWindow();
     service = new google.maps.places.PlacesService(map);
 
@@ -29,8 +31,7 @@ function initMap() {
         }
     }
 
-    // Listen for the event fired when the user selects a prediction and retrieve
-    // more details for that place.
+    // Listen for places_changed event when the user enters a city
     searchBox.addListener('places_changed', function () {
         var places = searchBox.getPlaces();
 
@@ -84,17 +85,30 @@ function initMap() {
             // console.log("selected place 1", state.selectedCoffeeShop);
             google.maps.event.addListener(marker, 'click', function () {
 
-                console.log("listener ok");
+                console.log("marker click listener is working");
 
 
                 service.getDetails({ placeId: place.place_id }, function (place, status) {
                     if (status == google.maps.places.PlacesServiceStatus.OK) {
 
+
+
                         var results = [];
                         // var coffeeShopSelect = 
                         $('#coffeeShopBtn').click(function (event) {
+
+                            console.log("state.selectedBook", state.selectedBook);
+                            console.log("place", place);
+                            state.test = "test55555";
+                            console.log("state.test1", state.test);
                             state.selectedCoffeeShop = place;
-                            localStorage.state = JSON.stringify(state);
+                            console.log("state.selectedCoffeeShop", state.selectedCoffeeShop);
+                            // localStorage.state = JSON.stringify(state);
+                            $('.find-coffee-shop-page').addClass('hide');
+                            $('.final-page').removeClass('hide-map');
+                            headerState(3);
+                            // insertBookAndCoffeeShopInfo();
+                            initFinalMap();
                             // console.log("selected place 2", state.selectedCoffeeShop);
                         });
                         // results.push(coffeeShopSelect);
@@ -129,4 +143,5 @@ function initMap() {
         map.fitBounds(bounds);
 
     });
+    console.log("state.test2", state.test);
 }
