@@ -1,7 +1,5 @@
 console.log("selected coffee shop", state.selectedCoffeeShop);
-// console.log(state.selectedCoffeeShop.formatted_address);
 console.log("selected book", state.selectedBook);
-
 
 
 // TODO: add "Walking" directions Option
@@ -16,15 +14,11 @@ function insertBookAndCoffeeShopInfo() {
 }
 
 
-
 // init map
 function initFinalMap() {
     insertBookAndCoffeeShopInfo();
     // var latitude = state.selectedCoffeeShop.geometry.location.lat;
     // var longitude = state.selectedCoffeeShop.geometry.location.lng;
-    // console.log("lat lng", state.selectedCoffeeShop.geometry.location);
-    // var latitude = place.geometry.location.lat;
-    // var longitude = place.geometry.location.lng;
     // var focus = { lat: latitude, lng: longitude };
     // var focus = {lat: 47.708346, lng: -122.181258};
     var directionsService = new google.maps.DirectionsService;

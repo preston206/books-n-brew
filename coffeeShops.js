@@ -2,7 +2,6 @@
 var infoWindow;
 
 // TODO: add "coffee in" to search string
-// toggle "select a coffee shop" text
 // prompt user for location and store in state
 
 
@@ -37,6 +36,10 @@ function initMap() {
 
     // Listen for places_changed event when the user enters a city
     searchBox.addListener('places_changed', function () {
+
+        // display tagline
+        $('.coffee-shop-search-tagline-2').show();
+
         var places = searchBox.getPlaces();
 
         if (places.length == 0) {
@@ -86,34 +89,28 @@ function initMap() {
             } else {
                 bounds.extend(place.geometry.location);
             }
-            // console.log("selected place 1", state.selectedCoffeeShop);
+
             google.maps.event.addListener(marker, 'click', function () {
 
                 console.log("marker click listener is working");
 
-
                 service.getDetails({ placeId: place.place_id }, function (place, status) {
                     if (status == google.maps.places.PlacesServiceStatus.OK) {
 
-
-
                         var results = [];
-                        // var coffeeShopSelect = 
+
                         $('#coffeeShopBtn').click(function (event) {
 
                             console.log("state.selectedBook", state.selectedBook);
                             console.log("place", place);
-                            state.test = "test55555";
-                            console.log("state.test1", state.test);
+
                             state.selectedCoffeeShop = place;
                             console.log("state.selectedCoffeeShop", state.selectedCoffeeShop);
                             // localStorage.state = JSON.stringify(state);
                             $('.find-coffee-shop-page').addClass('hide');
                             $('.final-page').removeClass('hide-map');
                             headerState(3);
-                            // insertBookAndCoffeeShopInfo();
                             initFinalMap();
-                            // console.log("selected place 2", state.selectedCoffeeShop);
                         });
                         // results.push(coffeeShopSelect);
 

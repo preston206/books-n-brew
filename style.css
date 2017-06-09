@@ -1,15 +1,24 @@
-
 * {
     box-sizing: border-box;
 }
 
-.hide {
-    display: none;
+
+/*header {
+    width: 600px;
+    height: 65px;
+    border: 1px solid black;
+    border-radius: 5px;
+}*/
+
+.title {
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
-.hide-map {
-    visibility: hidden;
-}
+
+/*.subtitle {
+    margin-top: 10px;
+}*/
 
 .app-state {
     margin-top: 40px;
@@ -24,30 +33,16 @@
     color: lightgray;
 }
 
-/*header {
-    width: 600px;
-    height: 65px;
-    border: 1px solid black;
-    border-radius: 5px;
-}*/
-
-.title {
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-/*.subtitle {
-    margin-top: 10px;
-}*/
-
-.tag-line {
-    /*width: 600px;*/
-    margin-top: 40px;
-    /*border: 1px solid lightgray;*/
-}
-
 main {
     margin-top: 15px;
+}
+
+.hide {
+    display: none;
+}
+
+.hide-map {
+    visibility: hidden;
 }
 
 #landing-form {
@@ -55,20 +50,8 @@ main {
     margin-bottom: 20px;
 }
 
-#final-form {
-    margin-top: 40px;
-}
-
-input#start, input#end {
-    width: 220px;
-}
-label#startLabel, label#endLabel {
-    margin-top: 20px;
-    margin-left: 15px;
-}
-
-button#finalBtn {
-    margin-top: 5px;
+.book-search-tagline {
+    display: none;
 }
 
 .book-results, .coffee-shop-results, .final-page-results {
@@ -80,6 +63,19 @@ button#finalBtn {
     border-radius: 8px;
 }
 
+
+/*.find-coffee-shop-page {
+    display: none;
+}*/
+
+#coffee-shop-input {
+    display: none;
+}
+
+.coffee-shop-search-tagline-2 {
+    display: none;
+}
+
 #map {
     display: inline-block;
 }
@@ -88,12 +84,35 @@ button#finalBtn {
     display: inline-block;
 }
 
-/*.find-coffee-shop-page {
-    display: none;
-}*/
+.side-panel-wrap {
+    display: inline-block;
+    height: 700px;
+    width: 352px;
+    text-align: center;
+    /*this fixes vertical alingment bug in MS Edge*/
+    vertical-align: top;
+}
 
-#coffee-shop-input {
-    display: none;
+#coffeeShopBtn {
+    /*display: none;*/
+    /*float: right;*/
+    /*position: relative;
+    left: 480px;
+    bottom: 3px;*/
+    border-radius: 5px;
+    /*margin-right: 55px;*/
+    margin-bottom: 3px;
+}
+
+#coffee-shop-reviews {
+    /*margin-top: 40px;*/
+    width: 350px;
+    height: 675px;
+    padding: 7px;
+    /*display: inline-block;*/
+    border: 1px solid lightgray;
+    overflow: auto;
+    border-radius: 8px;
 }
 
 .selected-results {
@@ -128,34 +147,41 @@ button#finalBtn {
     display: inline-block;
 }
 
-.side-panel-wrap {
-    display: inline-block;
-    height: 700px;
-    width: 352px;
-    text-align: center;
-    vertical-align: top;
-}
-
-#coffee-shop-reviews {
-    /*margin-top: 40px;*/
+#text-directions-panel {
     width: 350px;
-    height: 675px;
+    height: 700px;
     padding: 7px;
-    /*display: inline-block;*/
+    display: inline-block;
     border: 1px solid lightgray;
     overflow: auto;
     border-radius: 8px;
 }
 
-#coffeeShopBtn {
-    /*display: none;*/
-    /*float: right;*/
-    /*position: relative;
-    left: 480px;
-    bottom: 3px;*/
-    border-radius: 5px;
-    /*margin-right: 55px;*/
-    margin-bottom: 3px;
+.address-input-panel {
+    display: inline-block;
+    width: 250px;
+    height: 700px;
+    padding: 7px;
+    border: 1px solid lightgray;
+    overflow: auto;
+    border-radius: 8px;
+}
+
+#final-form {
+    margin-top: 40px;
+}
+
+label#startLabel, label#endLabel {
+    margin-top: 20px;
+    margin-left: 15px;
+}
+
+input#start, input#end {
+    width: 220px;
+}
+
+button#finalBtn {
+    margin-top: 5px;
 }
 
 .coffee-review-border {
@@ -175,24 +201,4 @@ button#finalBtn {
     width: 325px;
     height: 27px;
     margin-top: 10px;
-}
-
-#text-directions-panel {
-    width: 350px;
-    height: 700px;
-    padding: 7px;
-    display: inline-block;
-    border: 1px solid lightgray;
-    overflow: auto;
-    border-radius: 8px;
-}
-
-.address-input-panel {
-    display: inline-block;
-    width: 250px;
-    height: 700px;
-    padding: 7px;
-    border: 1px solid lightgray;
-    overflow: auto;
-    border-radius: 8px;
 }

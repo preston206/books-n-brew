@@ -1,7 +1,7 @@
 
 
 // TODO: remove URL link from book search results
-// toggle "select a book" text
+
 
 // get book data
 function getData(search, callback) {
@@ -59,17 +59,13 @@ function displayData(data) {
 // listen for form submit
 $('#book-search-form').submit(function (event) {
     event.preventDefault();
-    var userInput = $('form input').val();
+    var userInput = $('#book-input').val();
     state.bookSearchInput = userInput;
+
+    // display tagline
+    $('.book-search-tagline').show();
     getData(userInput, displayData);
 })
-
-// $('#book-search-form').click(function (event) {
-//     event.preventDefault();
-//     var userInput = $('#book-input').val();
-//     state.bookSearchInput = userInput;
-//     getData(userInput, displayData);
-// })
 
 $(function () {
     if (state.books) {
