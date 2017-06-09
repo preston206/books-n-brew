@@ -1,6 +1,10 @@
+
 var infoWindow;
 
-//TODO add "coffee in" to search
+// TODO: add "coffee in" to search string
+// toggle "select a coffee shop" text
+// prompt user for location and store in state
+
 
 function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {

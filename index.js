@@ -43,6 +43,9 @@ state = {
 //     $('.step-3').addClass('in-active');
 // }
 
+
+// TODO: cleanup state; probably dont need state.count
+
 function headerState(count) {
     // var count = state.count;
     // count = 1;

@@ -2,6 +2,12 @@ console.log("selected coffee shop", state.selectedCoffeeShop);
 // console.log(state.selectedCoffeeShop.formatted_address);
 console.log("selected book", state.selectedBook);
 
+
+
+// TODO: add "Walking" directions Option
+// use user provided location for map and marker center, position
+
+
 function insertBookAndCoffeeShopInfo() {
     $('.selected-book-name').html(state.selectedBook.volumeInfo.title);
     $('.selected-book-url').html(`<a href="${state.selectedBook.saleInfo.buyLink}" target="_blank">https://play.google.com/store/books/</a>`);

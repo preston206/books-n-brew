@@ -133,6 +133,7 @@ button#finalBtn {
     height: 700px;
     width: 352px;
     text-align: center;
+    vertical-align: top;
 }
 
 #coffee-shop-reviews {

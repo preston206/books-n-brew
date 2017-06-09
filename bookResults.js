@@ -1,5 +1,8 @@
 
 
+// TODO: remove URL link from book search results
+// toggle "select a book" text
+
 // get book data
 function getData(search, callback) {
     var base_url = "https://www.googleapis.com/books/v1/volumes?";
