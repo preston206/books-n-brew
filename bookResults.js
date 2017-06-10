@@ -38,6 +38,8 @@ function displayData(data) {
                 $('.find-book-page').addClass('hide');
                 $('.find-coffee-shop-page').removeClass('hide-map');
                 headerState(2);
+                // initMap();
+                getLoc();
                 console.log("state.selectedBook", state.selectedBook);
             })
             results.push(html);

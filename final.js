@@ -3,7 +3,7 @@ console.log("selected book", state.selectedBook);
 
 
 // TODO: add "Walking" directions Option
-// use user provided location for map and marker center, position
+
 
 
 function insertBookAndCoffeeShopInfo() {
@@ -39,15 +39,34 @@ function initFinalMap() {
     var onChangeHandler = function () {
         calculateAndDisplayRoute(directionsService, directionsDisplay);
     };
+
+    function getDirectionsOnLoad() {
+        calculateAndDisplayRoute(directionsService, directionsDisplay);
+    };
+
     document.getElementById('start').addEventListener('change', onChangeHandler);
     document.getElementById('end').addEventListener('change', onChangeHandler);
+    document.getElementById('finalBtn').addEventListener('click', onChangeHandler);
+
+    if (state.userLat) {
+        $('#start').val("your current location").attr("disabled", true);
+        let lat = state.userLat;
+        let lng = state.userLng;
+        // let latLng = new google.maps.LatLng(lat, lng)
+        state.userLoc = { lat: state.userLat, lng: state.userLng };
+        console.log("userLoc", state.userLoc);
+        getDirectionsOnLoad();
+    }
+    else {
+        state.userLoc = document.getElementById('start').value;
+    }
 
     $('#end').val(state.selectedCoffeeShop.name)
 }
 
 function calculateAndDisplayRoute(directionsService, directionsDisplay) {
     directionsService.route({
-        origin: document.getElementById('start').value,
+        origin: state.userLoc,
         destination: state.selectedCoffeeShop.formatted_address,
         travelMode: 'DRIVING'
     }, function (response, status) {
@@ -58,4 +77,3 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
         }
     });
 }
-

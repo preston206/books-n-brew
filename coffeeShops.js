@@ -2,12 +2,59 @@
 var infoWindow;
 
 // TODO: add "coffee in" to search string
-// prompt user for location and store in state
+// bug: adding multiple coffee shops, when it should only log one
+// which also causes the final map to give multiple directions
 
+function defaultLoc() {
+    state.userLat = 47.708346;
+    state.userLng = -122.181258;
+    initMap();
+}
+
+function success(position) {
+    state.userLat = position.coords.latitude;
+    state.userLng = position.coords.longitude;
+    initMap();
+}
+
+function getError(error) {
+    switch (eror.code) {
+        case error.PERMISSION_DENIED:
+            console.log("User denied the request for Geolocation.");
+            defaultLoc();
+            break;
+        case error.POSITION_UNAVAILABLE:
+            console.log("Location information is unavailable.");
+            defaultLoc();
+            break;
+        case error.TIMEOUT:
+            console.log("The request to get user location timed out.");
+            defaultLoc();
+            break;
+        case error.UNKNOWN_ERROR:
+            console.log("An unknown error occurred.");
+            defaultLoc();
+            break;
+    }
+}
+
+function getLoc() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(success, getError);
+    }
+
+    else {
+        console.log("Geolocation is not supported by this browser");
+        defaultLoc();
+    }
+}
+
+
+//center: { lat: 47.708346, lng: -122.181258 },
 
 function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: 47.708346, lng: -122.181258 },
+        center: { lat: state.userLat, lng: state.userLng },
         zoom: 13,
         scaleControl: true
     });
@@ -146,3 +193,7 @@ function initMap() {
     });
     console.log("state.test2", state.test);
 }
+
+// $(function () {
+//     getLoc();
+// })

@@ -36,7 +36,7 @@
             <form id="book-search-form">
                 <label for="book-input">What would you like to read today?</label>
                 <br />
-                <input type="text" id="book-input" placeholder="e.g. author, topic, genre" />
+                <input type="text" id="book-input" placeholder="e.g. author, topic, genre" autofocus />
                 <button type="submit" id="booksBtn" value="search-for-books">submit</button>
             </form>
 
@@ -102,7 +102,7 @@
                     <p>enter in your address to get directions to the coffee shop you selected.</p>
                     <form id="final-form">
                         <label for="start" id="startLabel">start</label>
-                        <input type="text" id="start" /><br /><br />
+                        <input type="text" id="start" placeholder="e.g. city, state or zipcode" /><br /><br />
                         <label for="end" id="endLabel">end</label>
                         <input type="text" id="end" disabled/><br />
                         <button type="button" id="finalBtn" value="get-directions">submit</button>
@@ -117,16 +117,14 @@
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <!--<script src="state.js"></script>-->
     <script src="index.js"></script>
     <script src="bookResults.js"></script>
     <script src="coffeeShops.js"></script>
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxDHNB-00Dm6piLxF8CBmFyPTXBrkYRis&libraries=places&callback=initMap"
-        async></script>
+    <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxDHNB-00Dm6piLxF8CBmFyPTXBrkYRis&libraries=places&callback=initMap"
+        async></script>-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxDHNB-00Dm6piLxF8CBmFyPTXBrkYRis&libraries=places" async></script>
     <script src="final.js"></script>
-    <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxDHNB-00Dm6piLxF8CBmFyPTXBrkYRis&libraries=places&callback=initFinalMap"
-        defer></script>-->
+
 </body>
 
 </html>
