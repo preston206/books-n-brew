@@ -53,7 +53,7 @@ function displayData(data) {
 
     state.books = data.items;
     // localStorage.state = JSON.stringify(state);
-    console.log("state.books", state.books);
+    // console.log("state.books", state.books);
     $('.book-results').html(results);
 }
 

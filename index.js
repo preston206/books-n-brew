@@ -1,24 +1,24 @@
 
 var state;
 
-// state = {
-//     books: [],
-//     selectedBook: {
-//         saleInfo: {
-//             buyLink: ""
-//         },
-//         volumeInfo: {
-//             title: ""
-//         }
-//     },
-//     bookSearchInput: "",
-//     selectedCoffeeShop: {
-//         name: "",
-//         vicinity: ""
-//     }
-// };
-
-state = {};
+state = {
+    books: [],
+    selectedBook: {
+        saleInfo: {
+            buyLink: ""
+        },
+        volumeInfo: {
+            title: ""
+        }
+    },
+    bookSearchInput: "",
+    selectedCoffeeShop: {
+        formatted_address: "",
+        name: "",
+        vicinity: ""
+    },
+    selectedCoffeeShopAddress: ""
+};
 
 function headerState(count) {
     switch (count) {

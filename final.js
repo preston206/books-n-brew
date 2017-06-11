@@ -1,5 +1,5 @@
-console.log("selected coffee shop", state.selectedCoffeeShop);
-console.log("selected book", state.selectedBook);
+// console.log("selected coffee shop", state.selectedCoffeeShop);
+// console.log("selected book", state.selectedBook);
 
 
 // TODO: add "Walking" directions Option
@@ -50,8 +50,8 @@ function initFinalMap() {
 
     if (state.userLat) {
         $('#start').val("your current location").attr("disabled", true);
-        let lat = state.userLat;
-        let lng = state.userLng;
+        // let lat = state.userLat;
+        // let lng = state.userLng;
         // let latLng = new google.maps.LatLng(lat, lng)
         state.userLoc = { lat: state.userLat, lng: state.userLng };
         console.log("userLoc", state.userLoc);
@@ -67,7 +67,7 @@ function initFinalMap() {
 function calculateAndDisplayRoute(directionsService, directionsDisplay) {
     directionsService.route({
         origin: state.userLoc,
-        destination: state.selectedCoffeeShop.formatted_address,
+        destination: state.selectedCoffeeShopAddress,
         travelMode: 'DRIVING'
     }, function (response, status) {
         if (status === 'OK') {

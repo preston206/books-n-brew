@@ -2,21 +2,28 @@
 var infoWindow;
 
 // TODO: add "coffee in" to search string
-// bug: adding multiple coffee shops, when it should only log one
-// which also causes the final map to give multiple directions
+// add cafe type
+// TODO: try to break init function into modules- use copy of file in case it gets messed up
+// then try to incorporate the nearbySearch function to only return cafes
 
+
+
+
+// if browser cant get user location, this will hard code it
 function defaultLoc() {
     state.userLat = 47.708346;
     state.userLng = -122.181258;
     initMap();
 }
 
+// if browser is successful at getting user location this will run
 function success(position) {
     state.userLat = position.coords.latitude;
     state.userLng = position.coords.longitude;
     initMap();
 }
 
+// geolocation error handling
 function getError(error) {
     switch (eror.code) {
         case error.PERMISSION_DENIED:
@@ -38,6 +45,7 @@ function getError(error) {
     }
 }
 
+// this attempts to get the user's locationl
 function getLoc() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(success, getError);
@@ -49,19 +57,24 @@ function getLoc() {
     }
 }
 
-
-//center: { lat: 47.708346, lng: -122.181258 },
-
+// initialize the map
 function initMap() {
+
+    console.log("map init");
+
     var map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: state.userLat, lng: state.userLng },
         zoom: 13,
         scaleControl: true
     });
+
+    // display the search input
     $('#coffee-shop-input').show();
-    console.log("map init");
+
     infoWindow = new google.maps.InfoWindow();
     service = new google.maps.places.PlacesService(map);
+
+
 
     // Create the search box and link it to the UI element.
     var input = document.getElementById('coffee-shop-input');
@@ -114,20 +127,15 @@ function initMap() {
                 scaledSize: new google.maps.Size(20, 20)
             };
 
-            // Create a marker for each place.
-            // markers.push(new google.maps.Marker({
-            //     map: map,
-            //     icon: icon,
-            //     title: place.name,
-            //     position: place.geometry.location
-            // }));
-
+            // margker settings
             marker = new google.maps.Marker({
                 map: map,
                 icon: icon,
+                title: place.name,
                 position: place.geometry.location,
             });
 
+            // Create a marker for each place
             markers.push(marker);
 
             if (place.geometry.viewport) {
@@ -146,20 +154,7 @@ function initMap() {
 
                         var results = [];
 
-                        $('#coffeeShopBtn').click(function (event) {
-
-                            console.log("state.selectedBook", state.selectedBook);
-                            console.log("place", place);
-
-                            state.selectedCoffeeShop = place;
-                            console.log("state.selectedCoffeeShop", state.selectedCoffeeShop);
-                            // localStorage.state = JSON.stringify(state);
-                            $('.find-coffee-shop-page').addClass('hide');
-                            $('.final-page').removeClass('hide-map');
-                            headerState(3);
-                            initFinalMap();
-                        });
-                        // results.push(coffeeShopSelect);
+                        state.selectedCoffeeShop = place;
 
                         place.reviews.map(function (review) {
                             let html = $(`<div><span class="coffee-review-background">Review written ${review.relative_time_description}</span><br />
@@ -167,7 +162,6 @@ function initMap() {
                         <div class="coffee-review-text">${review.text}</div></div><br />`);
 
                             results.push(html);
-
                         });
                         $('#coffee-shop-reviews').html(results);
 
@@ -188,12 +182,19 @@ function initMap() {
             });
 
         });
+
+        $('#coffeeShopBtn').click(function (event) {
+            state.selectedCoffeeShopAddress = state.selectedCoffeeShop.formatted_address;
+            // localStorage.state = JSON.stringify(state);
+            console.log("selected coffee shop", state.selectedCoffeeShop);
+            $('.find-coffee-shop-page').addClass('hide');
+            $('.final-page').removeClass('hide-map');
+            headerState(3);
+            initFinalMap();
+        });
+
         map.fitBounds(bounds);
 
     });
-    console.log("state.test2", state.test);
-}
 
-// $(function () {
-//     getLoc();
-// })
+}
