@@ -49,7 +49,7 @@
         </div>
 
         <!-- coffee shop search page -->
-        <div class="find-coffee-shop-page hide-map">
+        <div class="find-coffee-shop-page default-height hide-map">
             <div class="hide">
                 <!-- wrapped in a hidden div to prevent it from appearing on the page before the map renders -->
                 <form id="coffee-shop-search">
@@ -73,7 +73,9 @@
         </div>
 
         <!-- final page -->
-        <div class="final-page hide-map">
+        <div class="final-page default-height hide-map">
+
+
             <div class="selected-results">
                 <div class="selected-book">
                     <span>The eBook you selected is: <div class="selected-book-name"></div></span><br />
@@ -101,11 +103,21 @@
                     <!-- user inputs their location here, if not auto-detected -->
                     <p>enter in your address to get directions to the coffee shop you selected.</p>
                     <form id="final-form">
+
+                        <label for="travel-mode">Select your travel mode:</label><br />
+                        <select id="travel-mode">
+                            <!-- the options need to be uppercase in order for google API to work properly -->
+                            <option value="1" selected>DRIVING</option>
+                            <option value="2">WALKING</option>
+                        </select>
+                        <br /><br />
+
                         <label for="start" id="startLabel">start</label>
                         <input type="text" id="start" placeholder="e.g. city, state or zipcode" /><br /><br />
                         <label for="end" id="endLabel">end</label>
                         <input type="text" id="end" disabled/><br />
                         <button type="button" id="finalBtn" value="get-directions">submit</button>
+
                     </form>
                 </div>
             </div>
@@ -117,12 +129,10 @@
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxDHNB-00Dm6piLxF8CBmFyPTXBrkYRis&libraries=places" async></script>
     <script src="index.js"></script>
     <script src="bookResults.js"></script>
     <script src="coffeeShops.js"></script>
-    <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxDHNB-00Dm6piLxF8CBmFyPTXBrkYRis&libraries=places&callback=initMap"
-        async></script>-->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxDHNB-00Dm6piLxF8CBmFyPTXBrkYRis&libraries=places" async></script>
     <script src="final.js"></script>
 
 </body>

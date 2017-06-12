@@ -1,11 +1,6 @@
 // console.log("selected coffee shop", state.selectedCoffeeShop);
 // console.log("selected book", state.selectedBook);
 
-
-// TODO: add "Walking" directions Option
-
-
-
 function insertBookAndCoffeeShopInfo() {
     $('.selected-book-name').html(state.selectedBook.volumeInfo.title);
     $('.selected-book-url').html(`<a href="${state.selectedBook.saleInfo.buyLink}" target="_blank">https://play.google.com/store/books/</a>`);
@@ -13,14 +8,13 @@ function insertBookAndCoffeeShopInfo() {
     $('.selected-coffee-shop-vicinity').html(state.selectedCoffeeShop.vicinity);
 }
 
+function setUserLoc() {
+    state.userLoc = $('#start').val();
+}
 
 // init map
 function initFinalMap() {
     insertBookAndCoffeeShopInfo();
-    // var latitude = state.selectedCoffeeShop.geometry.location.lat;
-    // var longitude = state.selectedCoffeeShop.geometry.location.lng;
-    // var focus = { lat: latitude, lng: longitude };
-    // var focus = {lat: 47.708346, lng: -122.181258};
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer;
     var map = new google.maps.Map(document.getElementById('final-map'), {
@@ -30,6 +24,8 @@ function initFinalMap() {
 
     marker = new google.maps.Marker({
         map: map,
+        animation: google.maps.Animation.DROP,
+        title: state.selectedCoffeeShop.name,
         position: state.selectedCoffeeShop.geometry.location
     });
 
@@ -44,31 +40,31 @@ function initFinalMap() {
         calculateAndDisplayRoute(directionsService, directionsDisplay);
     };
 
+    if (state.userLoc) {
+        $('#start').val("your current location").attr("disabled", true);
+        console.log("userLoc1", state.userLoc);
+        getDirectionsOnLoad();
+    }
+
     document.getElementById('start').addEventListener('change', onChangeHandler);
     document.getElementById('end').addEventListener('change', onChangeHandler);
     document.getElementById('finalBtn').addEventListener('click', onChangeHandler);
 
-    if (state.userLat) {
-        $('#start').val("your current location").attr("disabled", true);
-        // let lat = state.userLat;
-        // let lng = state.userLng;
-        // let latLng = new google.maps.LatLng(lat, lng)
-        state.userLoc = { lat: state.userLat, lng: state.userLng };
-        console.log("userLoc", state.userLoc);
-        getDirectionsOnLoad();
-    }
-    else {
-        state.userLoc = document.getElementById('start').value;
-    }
+    $('#travel-mode').change(function () {
+        calculateAndDisplayRoute(directionsService, directionsDisplay);
+    })
 
     $('#end').val(state.selectedCoffeeShop.name)
 }
 
 function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+    setUserLoc();
+    console.log("userLoc2", state.userLoc);
+    var selectedTravelMode = $('#travel-mode option:selected').text();
     directionsService.route({
         origin: state.userLoc,
         destination: state.selectedCoffeeShopAddress,
-        travelMode: 'DRIVING'
+        travelMode: google.maps.TravelMode[selectedTravelMode]
     }, function (response, status) {
         if (status === 'OK') {
             directionsDisplay.setDirections(response);

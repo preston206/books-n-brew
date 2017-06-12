@@ -45,6 +45,11 @@ main {
     visibility: hidden;
 }
 
+.default-height {
+    height: 10px;
+    overflow: hidden;
+}
+
 #landing-form {
     margin-top: 40px;
     margin-bottom: 20px;
@@ -61,6 +66,14 @@ main {
     overflow: auto;
     border: 1px solid lightgray;
     border-radius: 8px;
+}
+
+.book-info {
+    margin-bottom: 15px;
+}
+
+.select-book {
+    margin-top: 5px;
 }
 
 
