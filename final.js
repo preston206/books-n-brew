@@ -8,10 +8,6 @@ function insertBookAndCoffeeShopInfo() {
     $('.selected-coffee-shop-vicinity').html(state.selectedCoffeeShop.vicinity);
 }
 
-function setUserLoc() {
-    state.userLoc = $('#start').val();
-}
-
 // init map
 function initFinalMap() {
     insertBookAndCoffeeShopInfo();
@@ -58,7 +54,11 @@ function initFinalMap() {
 }
 
 function calculateAndDisplayRoute(directionsService, directionsDisplay) {
-    setUserLoc();
+
+    if (!state.userLoc) {
+        state.userLoc = $('#start').val();
+    }
+
     console.log("userLoc2", state.userLoc);
     var selectedTravelMode = $('#travel-mode option:selected').text();
     directionsService.route({
@@ -70,6 +70,8 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
             directionsDisplay.setDirections(response);
         } else {
             window.alert('Directions request failed due to ' + status);
+            state.userLoc = "";
+            $('#start').attr("disabled", false).val('');
         }
     });
 }

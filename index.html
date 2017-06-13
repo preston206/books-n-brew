@@ -6,15 +6,18 @@
     <meta name="description" content="Connecting people with eBooks and coffee shops.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Book and Coffee Shop Connector</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
+    <!-- header -->
     <header>
         <h1 class="title">Book and Coffee Shop Connector</h1>
         <p class="subtitle">Bringing together two things you love- books and coffee.</p>
 
+        <!-- user instructions -->
         <ol class="app-state">
             <li class="step-1">find an eBook to download.</li>
             <li class="step-2">find a coffee shop to read at.</li>
@@ -53,7 +56,7 @@
             <div class="hide">
                 <!-- wrapped in a hidden div to prevent it from appearing on the page before the map renders -->
                 <form id="coffee-shop-search">
-                    <input type="text" id="coffee-shop-input" placeholder="e.g. coffee in seattle" />
+                    <input type="text" id="coffee-shop-input" placeholder="e.g. coffee in seattle" autofocus />
                 </form>
             </div>
 
@@ -74,7 +77,6 @@
 
         <!-- final page -->
         <div class="final-page default-height hide-map">
-
 
             <div class="selected-results">
                 <div class="selected-book">
@@ -129,6 +131,7 @@
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxDHNB-00Dm6piLxF8CBmFyPTXBrkYRis&libraries=places" async></script>
     <script src="index.js"></script>
     <script src="bookResults.js"></script>

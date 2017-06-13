@@ -2,39 +2,50 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: #66462C;
+}
 
-/*header {
-    width: 600px;
-    height: 65px;
-    border: 1px solid black;
-    border-radius: 5px;
-}*/
+header {
+    /*margin-top: 0;*/
+    width: 100%;
+    background-color: #BD986F;
+}
+
+a {
+    color: #461220;
+}
 
 .title {
     margin-top: 0;
-    margin-bottom: 0;
+    margin-bottom: 10px;
+    padding-top: 20px;
+    padding-left: 20px;
 }
 
-
-/*.subtitle {
-    margin-top: 10px;
-}*/
+.subtitle {
+    padding-left: 20px;
+}
 
 .app-state {
     margin-top: 40px;
-}
-
-.active {
-    color: lightgreen;
+    padding-bottom: 20px;
     font-size: 18px;
 }
 
+.active {
+    /*color: #177E89;*/
+    color: #177E89;
+    font-weight: bold;
+    /*font-size: 18px;*/
+}
+
 .in-active {
-    color: lightgray;
+    color: black;
 }
 
 main {
-    margin-top: 15px;
+    width: 100%;
 }
 
 .hide {
@@ -43,16 +54,21 @@ main {
 
 .hide-map {
     visibility: hidden;
-}
-
-.default-height {
     height: 10px;
     overflow: hidden;
 }
 
-#landing-form {
+
+/*.default-height {
+    height: 10px;
+    overflow: hidden;
+}*/
+
+.landing-page, .find-book-page, .find-coffee-shop-page, .final-page {
     margin-top: 40px;
     margin-bottom: 20px;
+    padding-left: 20px;
+    width: 100%;
 }
 
 .book-search-tagline {
@@ -61,11 +77,16 @@ main {
 
 .book-results, .coffee-shop-results, .final-page-results {
     /*margin-top: 40px;*/
-    width: 750px;
-    height: 700px;
+    width: 650px;
+    height: 650px;
     overflow: auto;
-    border: 1px solid lightgray;
+    border: 1px solid black;
     border-radius: 8px;
+    background-color: #BD986F;
+}
+
+.book-results {
+    padding: 5px;
 }
 
 .book-info {
@@ -76,13 +97,12 @@ main {
     margin-top: 5px;
 }
 
-
-/*.find-coffee-shop-page {
-    display: none;
-}*/
-
 #coffee-shop-input {
     display: none;
+    width: 45%;
+    height: 28px;
+    font-size: 16px;
+    margin-top: 10px;
 }
 
 .coffee-shop-search-tagline-2 {
@@ -99,7 +119,7 @@ main {
 
 .side-panel-wrap {
     display: inline-block;
-    height: 700px;
+    height: 650px;
     width: 352px;
     text-align: center;
     /*this fixes vertical alingment bug in MS Edge*/
@@ -120,24 +140,30 @@ main {
 #coffee-shop-reviews {
     /*margin-top: 40px;*/
     width: 350px;
-    height: 675px;
+    height: 621px;
     padding: 7px;
     /*display: inline-block;*/
-    border: 1px solid lightgray;
-    overflow: auto;
+    border: 1px solid black;
     border-radius: 8px;
+    overflow: auto;
+    background-color: #BD986F;
 }
 
 .selected-results {
     margin-bottom: 5px;
+    /*margin-left: auto;
+    margin-right: auto;*/
 }
 
 .selected-book {
     height: 100px;
-    /*display: inline-block;*/
     padding: 10px;
     float: left;
-    background-color: lightblue;
+    background-color: #177E89;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-left: auto;
+    /*margin-right: auto;*/
 }
 
 .selected-book-name {
@@ -149,7 +175,11 @@ main {
     margin-left: 5px;
     display: inline-block;
     padding: 10px;
-    background-color: pink;
+    background-color: #177E89;
+    border-radius: 8px;
+    font-weight: bold;
+    /*margin-left: auto;*/
+    margin-right: auto;
 }
 
 .selected-coffee-shop-name {
@@ -162,22 +192,24 @@ main {
 
 #text-directions-panel {
     width: 350px;
-    height: 700px;
+    height: 650px;
     padding: 7px;
     display: inline-block;
-    border: 1px solid lightgray;
-    overflow: auto;
+    border: 1px solid black;
     border-radius: 8px;
+    overflow: auto;
+    background-color: #BD986F;
 }
 
 .address-input-panel {
     display: inline-block;
     width: 250px;
-    height: 700px;
+    height: 650px;
     padding: 7px;
-    border: 1px solid lightgray;
-    overflow: auto;
+    border: 1px solid black;
     border-radius: 8px;
+    overflow: auto;
+    background-color: #BD986F;
 }
 
 #final-form {
@@ -190,7 +222,7 @@ label#startLabel, label#endLabel {
 }
 
 input#start, input#end {
-    width: 220px;
+    width: 92%;
 }
 
 button#finalBtn {
@@ -202,16 +234,11 @@ button#finalBtn {
 }
 
 .coffee-review-background {
-    background-color: #cccccc;
+    /*background-color: #cccccc;*/
+    font-weight: bold;
 }
 
 .coffee-review-text {
     text-align: left;
     padding-left: 4px;
-}
-
-#coffe-shop-search {
-    width: 325px;
-    height: 27px;
-    margin-top: 10px;
 }

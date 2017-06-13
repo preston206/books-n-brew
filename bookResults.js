@@ -40,7 +40,7 @@ function displayData(data) {
                     // localStorage.state = JSON.stringify(state);
                     $('.find-book-page').addClass('hide');
                     $('.find-coffee-shop-page').removeClass('hide-map');
-                    $('.find-coffee-shop-page').removeClass('default-height');
+                    // $('.find-coffee-shop-page').removeClass('default-height');
                     headerState(2);
                     // initMap();
                     getLoc();
