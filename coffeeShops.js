@@ -188,7 +188,6 @@ $('#coffeeShopBtn').click(function (event) {
     console.log("selected coffee shop", state.selectedCoffeeShop);
     $('.find-coffee-shop-page').addClass('hide');
     $('.final-page').removeClass('hide-map');
-    // $('.final-page').removeClass('default-height');
     headerState(3);
     initFinalMap();
 });

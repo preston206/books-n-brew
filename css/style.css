@@ -12,8 +12,12 @@ header {
     background-color: #BD986F;
 }
 
-a {
-    color: #461220;
+a:link, a:active, a:visited {
+    color: purple;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 .title {
@@ -58,12 +62,6 @@ main {
     overflow: hidden;
 }
 
-
-/*.default-height {
-    height: 10px;
-    overflow: hidden;
-}*/
-
 .landing-page, .find-book-page, .find-coffee-shop-page, .final-page {
     margin-top: 40px;
     margin-bottom: 20px;
@@ -101,7 +99,7 @@ main {
     display: none;
     width: 45%;
     height: 28px;
-    font-size: 16px;
+    font-size: 14px;
     margin-top: 10px;
 }
 
@@ -159,7 +157,7 @@ main {
     height: 100px;
     padding: 10px;
     float: left;
-    background-color: #177E89;
+    background-color: #6BACB3;
     border-radius: 8px;
     font-weight: bold;
     margin-left: auto;
@@ -175,7 +173,7 @@ main {
     margin-left: 5px;
     display: inline-block;
     padding: 10px;
-    background-color: #177E89;
+    background-color: #6BACB3;
     border-radius: 8px;
     font-weight: bold;
     /*margin-left: auto;*/
@@ -241,4 +239,8 @@ button#finalBtn {
 .coffee-review-text {
     text-align: left;
     padding-left: 4px;
+}
+
+#extLinkImg {
+    width: 12px;
 }
