@@ -2,14 +2,61 @@
     box-sizing: border-box;
 }
 
+
+/*html, body {
+    height: 100%;
+    background-color: black;
+}*/
+
 body {
-    background-color: #66462C;
+    /*background-color: #66462C;*/
+    background-color: black;
+    height: 100%;
+    /*background: url("../img/landing2_1920.jpg") no-repeat left fixed;*/
+    /*background: url("../img/landing2_1920.jpg") no-repeat center center fixed;*/
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url("../img/landing2x1920.jpg");
+    background-size: cover;
+    /*background-color: cadetblue;*/
+}
+
+.landing-bg {
+    background: url("../img/landing2x1920.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+.books-bg {
+    background: url("../img/books4x1920.jpg") no-repeat center center fixed;
+    background-size: cover;
+    z-index: 1;
+}
+
+.coffee-bg {
+    background: url("../img/coffee1920.jpg") no-repeat center center fixed;
+    background-size: cover;
+    z-index: 2;
+}
+
+.final-bg {
+    background: url("../img/final1920.jpg") no-repeat center center fixed;
+    background-size: cover;
+    z-index: 3;
 }
 
 header {
     /*margin-top: 0;*/
     width: 100%;
-    background-color: #BD986F;
+    /*background-color: #BD986F;*/
+    /*opacity: .3;
+    background-color: black;*/
+    background: rgba(0, 0, 0, 0.4);
+    /*color: #6BACB3;*/
+    color: #4195b7;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 a:link, a:active, a:visited {
@@ -21,36 +68,68 @@ a:hover {
 }
 
 .title {
+    width: 35%;
     margin-top: 0;
-    margin-bottom: 10px;
+    /*margin-bottom: 10px;*/
     padding-top: 20px;
-    padding-left: 20px;
+    /*padding-left: 20px;*/
+    margin-left: auto;
+    margin-right: auto;
+    /*border: 1px solid white;*/
+    font-family: 'Dancing Script', cursive;
+    font-size: 110px;
+    text-align: center;
+    letter-spacing: 7px;
 }
 
 .subtitle {
-    padding-left: 20px;
+    /*padding-top: 5px;*/
+    text-align: center;
+    width: 30%;
+    /*padding-left: 20px;*/
+    padding-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    color: maroon;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: 'Oswald', sans-serif;
+    /*border: 1px solid white;*/
+    letter-spacing: 2px;
+}
+
+h1 {
+    margin-bottom: 0;
 }
 
 .app-state {
-    margin-top: 40px;
-    padding-bottom: 20px;
+    /*margin-top: 40px;*/
+    /*padding-top: 50px;*/
+    padding-bottom: 30px;
     font-size: 18px;
+    color: #4195b7;
 }
 
 .active {
     /*color: #177E89;*/
     color: #177E89;
     font-weight: bold;
+    background-color: gray;
     /*font-size: 18px;*/
 }
 
-.in-active {
-    color: black;
-}
 
-main {
+/*.in-active {
+    color: black;
+}*/
+
+
+/*main {
+    background: url(landing1920.jpg) no-repeat left fixed;
+    background-size: cover;
     width: 100%;
-}
+    height: 100%;
+}*/
 
 .hide {
     display: none;
@@ -58,32 +137,67 @@ main {
 
 .hide-map {
     visibility: hidden;
-    height: 10px;
+    height: 0;
     overflow: hidden;
 }
 
 .landing-page, .find-book-page, .find-coffee-shop-page, .final-page {
-    margin-top: 40px;
-    margin-bottom: 20px;
-    padding-left: 20px;
-    width: 100%;
+    /*margin-top: 40px;
+    margin-bottom: 20px;*/
+    /*padding-left: 20px;*/
+    margin-left: auto;
+    margin-right: auto;
+    /*height: 100%;*/
+    /*background-color: black;*/
+    background: rgba(0, 0, 0, 0.4);
+    /*opacity: .3;*/
+    /*padding-top: 50px;*/
+    padding-bottom: 50px;
+    color: #4195b7;
+}
+
+.landing-page {
+    width: 35%;
+}
+
+.find-book-page {
+    width: 50%;
+}
+
+.find-coffee-shop-page {
+    width: 60%;
+}
+
+.final-page {
+    width: 65%;
+}
+
+#landing-form {
+    margin-left: 40px;
 }
 
 .book-search-tagline {
     display: none;
 }
 
-.book-results, .coffee-shop-results, .final-page-results {
+#book-input-label {
+    padding-bottom: 20px;
+}
+
+.coffee-shop-results, .final-page-results {
     /*margin-top: 40px;*/
-    width: 650px;
-    height: 650px;
+    width: 50%;
+    height: 545px;
     overflow: auto;
-    border: 1px solid black;
-    border-radius: 8px;
-    background-color: #BD986F;
+    /*border: 1px solid black;
+    border-radius: 8px;*/
+    /*background-color: #BD986F;*/
 }
 
 .book-results {
+    width: 100%;
+    height: 545px;
+    overflow: auto;
     padding: 5px;
 }
 
@@ -98,8 +212,8 @@ main {
 #coffee-shop-input {
     display: none;
     width: 45%;
-    height: 28px;
-    font-size: 14px;
+    /*height: 28px;*/
+    font-size: 18px;
     margin-top: 10px;
 }
 
@@ -108,6 +222,7 @@ main {
 }
 
 #map {
+    height: 540px;
     display: inline-block;
 }
 
@@ -117,7 +232,7 @@ main {
 
 .side-panel-wrap {
     display: inline-block;
-    height: 650px;
+    height: 400px;
     width: 352px;
     text-align: center;
     /*this fixes vertical alingment bug in MS Edge*/
@@ -138,13 +253,13 @@ main {
 #coffee-shop-reviews {
     /*margin-top: 40px;*/
     width: 350px;
-    height: 621px;
+    height: 421px;
     padding: 7px;
     /*display: inline-block;*/
     border: 1px solid black;
     border-radius: 8px;
     overflow: auto;
-    background-color: #BD986F;
+    /*background-color: #BD986F;*/
 }
 
 .selected-results {
@@ -157,7 +272,7 @@ main {
     height: 100px;
     padding: 10px;
     float: left;
-    background-color: #6BACB3;
+    /*background-color: #6BACB3;*/
     border-radius: 8px;
     font-weight: bold;
     margin-left: auto;
@@ -173,7 +288,7 @@ main {
     margin-left: 5px;
     display: inline-block;
     padding: 10px;
-    background-color: #6BACB3;
+    /*background-color: #6BACB3;*/
     border-radius: 8px;
     font-weight: bold;
     /*margin-left: auto;*/
@@ -184,30 +299,34 @@ main {
     display: inline-block;
 }
 
+.selected-book:hover, .selected-coffee-shop:hover {
+    opacity: 0.9;
+}
+
 .selected-coffee-shop-vicinity {
     display: inline-block;
 }
 
 #text-directions-panel {
     width: 350px;
-    height: 650px;
+    height: 400px;
     padding: 7px;
     display: inline-block;
     border: 1px solid black;
     border-radius: 8px;
     overflow: auto;
-    background-color: #BD986F;
+    /*background-color: #BD986F;*/
 }
 
 .address-input-panel {
     display: inline-block;
     width: 250px;
-    height: 650px;
+    height: 400px;
     padding: 7px;
     border: 1px solid black;
     border-radius: 8px;
     overflow: auto;
-    background-color: #BD986F;
+    /*background-color: #BD986F;*/
 }
 
 #final-form {

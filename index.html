@@ -8,27 +8,31 @@
     <title>Book and Coffee Shop Connector</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Oswald" rel="stylesheet">
 </head>
 
 <body>
 
     <!-- header -->
     <header>
-        <h1 class="title">Book and Coffee Shop Connector</h1>
+        <h1 class="title">Books 'n Brew</h1>
         <p class="subtitle">Bringing together two things you love- books and coffee.</p>
 
         <!-- user instructions -->
-        <ol class="app-state">
-            <li class="step-1">find an eBook to download.</li>
-            <li class="step-2">find a coffee shop to read at.</li>
-            <li class="step-3">purchase and get directions.</li>
-        </ol>
+
     </header>
 
     <main>
 
         <!-- landing page -->
+
         <div class="landing-page">
+            <ol class="app-state">
+                <li class="step-1">find an eBook to download.</li>
+                <li class="step-2">find a coffee shop to read at.</li>
+                <li class="step-3">purchase and get directions.</li>
+            </ol>
+
             <form id="landing-form">
                 <button type="button" id="landingBtn" onclick="goToBooks()" value="go-to-books">let's get started!</button>
             </form>
@@ -37,7 +41,7 @@
         <!-- book search page -->
         <div class="find-book-page hide">
             <form id="book-search-form">
-                <label for="book-input">What would you like to read today?</label>
+                <label id="book-input-label" for="book-input">What would you like to read today?</label>
                 <br />
                 <input type="text" id="book-input" placeholder="e.g. author, topic, genre" autofocus />
                 <button type="submit" id="booksBtn" value="search-for-books">submit</button>
@@ -136,10 +140,10 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxDHNB-00Dm6piLxF8CBmFyPTXBrkYRis&libraries=places" async></script>
-    <script src="index.js"></script>
-    <script src="bookResults.js"></script>
-    <script src="coffeeShops.js"></script>
-    <script src="final.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/bookResults.js"></script>
+    <script src="js/coffeeShops.js"></script>
+    <script src="js/final.js"></script>
 
 </body>
 

@@ -188,6 +188,11 @@ $('#coffeeShopBtn').click(function (event) {
     console.log("selected coffee shop", state.selectedCoffeeShop);
     $('.find-coffee-shop-page').addClass('hide');
     $('.final-page').removeClass('hide-map');
+    $('body')
+        .css('background-image', 'url("C:/GitProj/book-and-coffee-shop-connector/img/coffee1920.jpg")')
+        .fadeOut('slow')
+        .css('background-image', 'url("C:/GitProj/book-and-coffee-shop-connector/img/final1920.jpg")')
+        .fadeIn('slow');
     headerState(3);
     initFinalMap();
 });
