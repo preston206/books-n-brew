@@ -9,50 +9,53 @@
 }*/
 
 body {
-    /*background-color: #66462C;*/
     background-color: black;
     height: 100%;
-    /*background: url("../img/landing2_1920.jpg") no-repeat left fixed;*/
-    /*background: url("../img/landing2_1920.jpg") no-repeat center center fixed;*/
     background-attachment: fixed;
     background-position: center center;
     background-repeat: no-repeat;
-    background-image: url("../img/landing2x1920.jpg");
+    background-image: url("../img/landing1920.jpg");
     background-size: cover;
-    /*background-color: cadetblue;*/
 }
 
-.landing-bg {
+
+/*.landing-bg {
     background: url("../img/landing2x1920.jpg") no-repeat center center fixed;
     background-size: cover;
-}
+}*/
 
 .books-bg {
-    background: url("../img/books4x1920.jpg") no-repeat center center fixed;
+    /*background: url("../img/books3x1920.jpg") no-repeat center center fixed;*/
+    background: url("../img/books5x1920.jpg") no-repeat center center fixed;
     background-size: cover;
-    z-index: 1;
+    /*z-index: 1;*/
+    -webkit-transition: all 0.9s ease-in 0.15s;
+    -moz-transition: all 0.9s ease-in 0.15s;
+    transition: all 0.9s ease-in 0.15s;
 }
 
 .coffee-bg {
     background: url("../img/coffee1920.jpg") no-repeat center center fixed;
     background-size: cover;
-    z-index: 2;
+    /*z-index: 2;*/
+    -webkit-transition: all 0.9s ease-in 0.2s;
+    -moz-transition: all 0.9s ease-in 0.2s;
+    transition: all 0.9s ease-in 0.2s;
 }
 
 .final-bg {
     background: url("../img/final1920.jpg") no-repeat center center fixed;
     background-size: cover;
-    z-index: 3;
+    /*z-index: 3;*/
+    -webkit-transition: all 0.9s ease-in 0.2s;
+    -moz-transition: all 0.9s ease-in 0.2s;
+    transition: all 0.9s ease-in 0.2s;
 }
 
 header {
     /*margin-top: 0;*/
     width: 100%;
-    /*background-color: #BD986F;*/
-    /*opacity: .3;
-    background-color: black;*/
-    background: rgba(0, 0, 0, 0.4);
-    /*color: #6BACB3;*/
+    background: rgba(0, 0, 0, 0.6);
     color: #4195b7;
     font-weight: bold;
     margin-left: auto;
@@ -60,7 +63,11 @@ header {
 }
 
 a:link, a:active, a:visited {
-    color: purple;
+    color: maroon;
+}
+
+#extLinkImg {
+    width: 12px;
 }
 
 a:hover {
@@ -68,13 +75,9 @@ a:hover {
 }
 
 .title {
-    width: 35%;
+    width: 100%;
     margin-top: 0;
-    /*margin-bottom: 10px;*/
     padding-top: 20px;
-    /*padding-left: 20px;*/
-    margin-left: auto;
-    margin-right: auto;
     /*border: 1px solid white;*/
     font-family: 'Dancing Script', cursive;
     font-size: 110px;
@@ -85,8 +88,7 @@ a:hover {
 .subtitle {
     /*padding-top: 5px;*/
     text-align: center;
-    width: 30%;
-    /*padding-left: 20px;*/
+    width: 100%;
     padding-bottom: 10px;
     margin-left: auto;
     margin-right: auto;
@@ -119,11 +121,6 @@ h1 {
 }
 
 
-/*.in-active {
-    color: black;
-}*/
-
-
 /*main {
     background: url(landing1920.jpg) no-repeat left fixed;
     background-size: cover;
@@ -149,7 +146,7 @@ h1 {
     margin-right: auto;
     /*height: 100%;*/
     /*background-color: black;*/
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.6);
     /*opacity: .3;*/
     /*padding-top: 50px;*/
     padding-bottom: 50px;
@@ -212,7 +209,6 @@ h1 {
 #coffee-shop-input {
     display: none;
     width: 45%;
-    /*height: 28px;*/
     font-size: 18px;
     margin-top: 10px;
 }
@@ -235,7 +231,7 @@ h1 {
     height: 400px;
     width: 352px;
     text-align: center;
-    /*this fixes vertical alingment bug in MS Edge*/
+    /*vertical-align fixes alingment bug in MS Edge*/
     vertical-align: top;
 }
 
@@ -252,7 +248,8 @@ h1 {
 
 #coffee-shop-reviews {
     /*margin-top: 40px;*/
-    width: 350px;
+    /*width: 350px;*/
+    width: 100%;
     height: 421px;
     padding: 7px;
     /*display: inline-block;*/
@@ -263,20 +260,24 @@ h1 {
 }
 
 .selected-results {
+    width: 90%;
     margin-bottom: 5px;
-    /*margin-left: auto;
-    margin-right: auto;*/
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .selected-book {
     height: 100px;
     padding: 10px;
     float: left;
-    /*background-color: #6BACB3;*/
+    background-color: black;
     border-radius: 8px;
     font-weight: bold;
     margin-left: auto;
     /*margin-right: auto;*/
+    -webkit-transition: background-color 0.3s ease 0s;
+    -moz-transition: background-color 0.3s ease 0s;
+    transition: background-color 0.3s ease 0s;
 }
 
 .selected-book-name {
@@ -288,11 +289,14 @@ h1 {
     margin-left: 5px;
     display: inline-block;
     padding: 10px;
-    /*background-color: #6BACB3;*/
+    background-color: black;
     border-radius: 8px;
     font-weight: bold;
-    /*margin-left: auto;*/
+    margin-left: 80px;
     margin-right: auto;
+    -webkit-transition: background-color 0.3s ease 0s;
+    -moz-transition: background-color 0.3s ease 0s;
+    transition: background-color 0.3s ease 0s;
 }
 
 .selected-coffee-shop-name {
@@ -300,7 +304,7 @@ h1 {
 }
 
 .selected-book:hover, .selected-coffee-shop:hover {
-    opacity: 0.9;
+    background-color: #202020;
 }
 
 .selected-coffee-shop-vicinity {
@@ -308,7 +312,8 @@ h1 {
 }
 
 #text-directions-panel {
-    width: 350px;
+    /*width: 350px;*/
+    width: 24%;
     height: 400px;
     padding: 7px;
     display: inline-block;
@@ -320,7 +325,8 @@ h1 {
 
 .address-input-panel {
     display: inline-block;
-    width: 250px;
+    /*width: 250px;*/
+    width: 24%;
     height: 400px;
     padding: 7px;
     border: 1px solid black;
@@ -358,8 +364,4 @@ button#finalBtn {
 .coffee-review-text {
     text-align: left;
     padding-left: 4px;
-}
-
-#extLinkImg {
-    width: 12px;
 }

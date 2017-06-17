@@ -47,11 +47,12 @@ function headerState(count) {
 function goToBooks() {
     $('.landing-page').addClass('hide');
     $('.find-book-page').removeClass('hide');
-    // $('body').addClass('books-bg');
-    $('body')
-        .css('background-image', 'url("C:/GitProj/book-and-coffee-shop-connector/img/landing2x1920.jpg")')
-        .fadeOut('slow')
-        .css('background-image', 'url("C:/GitProj/book-and-coffee-shop-connector/img/books4x1920.jpg")')
-        .fadeIn('slow');
+    // $('body').animate({ "background-image": "url('C:/GitProj/book-and-coffee-shop-connector/img/books4x1920.jpg')" }, 5000);
+    $('body').addClass('books-bg');
+    // $('body')
+    //     .css('background-image', '')
+    //     .fadeOut('fast')
+    //     .css('background-image', 'url("C:/GitProj/book-and-coffee-shop-connector/img/books4x1920.jpg")')
+    //     .fadeIn('slow');
     headerState(1);
 }

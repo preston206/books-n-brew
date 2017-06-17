@@ -40,11 +40,7 @@ function displayData(data) {
                     // localStorage.state = JSON.stringify(state);
                     $('.find-book-page').addClass('hide');
                     $('.find-coffee-shop-page').removeClass('hide-map');
-                    $('body')
-                        .css('background-image', 'url("C:/GitProj/book-and-coffee-shop-connector/img/books4x1920.jpg")')
-                        .fadeOut('slow')
-                        .css('background-image', 'url("C:/GitProj/book-and-coffee-shop-connector/img/coffee1920.jpg")')
-                        .fadeIn('slow');
+                    $('body').addClass('coffee-bg');
                     headerState(2);
                     getLoc();
                     console.log("state.selectedBook", state.selectedBook);
