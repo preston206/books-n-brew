@@ -3,12 +3,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="description" content="Connecting people with eBooks and coffee shops.">
+    <meta name="description" content="Connecting people with e-Books and coffee shops.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Book and Coffee Shop Connector</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Oswald" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Merienda+One|Oswald" rel="stylesheet">
 </head>
 
 <body>
@@ -22,107 +22,159 @@
     <main>
 
         <!-- landing page -->
-        <div class="container-fluid landing-page">
-            <ol class="app-state">
-                <!-- user instructions -->
-                <li class="step-1">find an eBook to download.</li>
-                <li class="step-2">find a coffee shop to read at.</li>
-                <li class="step-3">purchase and get directions.</li>
-            </ol>
+        <div class="container landing-page">
+            <div class="instructions row">
+                <div class="col-md-12">
+                    <ol class="list-unstyled">
+                        <!-- user instructions -->
+                        <li class="step-1"><span class="instruction-merienda">Step 1:</span> <span class="instruction-helvetica">find an e-Book to download.</span></li>
+                        <li class="step-2"><span class="instruction-merienda">Step 2:</span> <span class="instruction-helvetica">find a coffee shop to read at.</span></li>
+                        <li class="step-3"><span class="instruction-merienda">Step 3:</span> <span class="instruction-helvetica">purchase and get directions.</span></li>
+                    </ol>
 
-            <form id="landing-form">
-                <button type="button" id="landingBtn" onclick="goToBooks()" value="go-to-books">let's get started!</button>
-            </form>
+                    <div id="landing-btn-container">
+                        <button class="btn btn-default" type="button" id="landingBtn" onclick="goToBooks()" value="go-to-books">let's get started!</button>
+                    </div>
+
+                </div>
+            </div>
         </div>
 
         <!-- book search page -->
-        <div class="container-fluid find-book-page hide">
-            <form id="book-search-form">
-                <label id="book-input-label" for="book-input">What would you like to read today?</label>
-                <br />
-                <input type="text" id="book-input" placeholder="e.g. author, topic, genre" autofocus />
-                <button type="submit" id="booksBtn" value="search-for-books">submit</button>
-            </form>
+        <div class="container find-book-page hide">
+            <div class="row">
+                <div class="col-md-12">
 
-            <div class="book-results-container">
-                <span class="book-search-tagline">select a book.</span><br />
-                <div class="book-results">
-                    <!-- results from google books API get inserted here -->
-                </div>
-            </div>
-        </div>
+                    <form class="form-inline" id="book-search-form">
 
-        <!-- coffee shop search page -->
-        <div class="container-fluid find-coffee-shop-page hide-map">
+                        <span id="book-search-tagline">What would you like to read today?</span>
+                        <br />
+                        <div class="form-group">
+                            <input class="form-control" type="text" id="book-input" placeholder="e.g. author, topic, genre" autofocus />
+                            <button class="btn btn-default" type="submit" id="booksBtn" value="search-for-books">submit</button>
+                        </div>
+                    </form>
 
-            <div class="hide">
-                <!-- wrapped in a hidden div to prevent it from appearing on the page before the map renders -->
-                <form id="coffee-shop-search">
-                    <input type="text" id="coffee-shop-input" placeholder="e.g. coffee in seattle" autofocus />
-                </form>
-            </div>
-
-            <div class="coffee-shop-results-container">
-                <span class="coffee-shop-search-tagline-1">Where would you like to read today?</span>
-                <span class="coffee-shop-search-tagline-2">select a coffee shop.</span><br />
-                <div id="map" class="coffee-shop-results">
-                    <!-- google map gets inserted here -->
-                </div>
-
-                <div class="side-panel-wrap">
-                    <button type="button" id="coffeeShopBtn" value="go-to-final" disabled>select this coffee shop</button>
-                    <div id="coffee-shop-reviews">
+                    <div class="book-results-container">
+                        <span class="hidden-tagline" id="book-select-tagline">select an e-book</span><br />
+                        <div class="book-results">
+                            <!-- results from google books API get inserted here -->
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- final page -->
-        <div class="container-fluid final-page hide-map">
+        <!-- coffee shop search page -->
+        <div class="container find-coffee-shop-page hide-map">
+            <div class="row">
 
-            <div class="selected-results">
-                <div class="selected-book">
-                    <span>The eBook you selected is: <div class="selected-book-name"></div></span><br />
-                    <span>You can purchase and download the eBook here:</span><br />
-                    <div class="selected-book-url"></div>
+                <div class="container">
+                    <div class="hide">
+                        <!-- wrapped in a hidden div to prevent it from appearing on the page before the map renders -->
+                        <form id="coffee-shop-search">
+                            <input type="text" id="coffee-shop-input" placeholder="e.g. coffee in seattle" />
+                        </form>
+                    </div>
                 </div>
 
-                <div class="selected-coffee-shop">
-                    <span>The coffee shop you selected is: <div class="selected-coffee-shop-name"></div></span><br />
-                    <span>At: <div class="selected-coffee-shop-vicinity"></div></span><br />
-                    <span>Use the input fields at the right to get directions.</span>
+                <div class="col-md-8">
+                    <div class="coffee-shop-results-container">
+                        <span class="coffee-shop-search-tagline-1">Where would you like to read today?</span><br />
+                        <span class="coffee-shop-search-tagline-2 hidden-tagline">select a coffee shop</span><br />
+                        <div id="map" class="coffee-shop-results">
+                            <!-- google map gets inserted here -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="side-panel-wrap">
+                        <button class="btn btn-default" type="button" id="coffeeShopBtn" value="go-to-final" disabled>select this coffee shop</button>
+                        <div id="coffee-shop-reviews">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- final page -->
+        <div class="container final-page hide-map">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="selected-results">
+                        <div class="selected-book">
+                            <span>The e-Book you selected is: </span>
+                            <div class="selected-book-name"></div>
+                            <span>You can purchase and download the e-Book here:</span><br />
+                            <div class="selected-book-url"></div>
+                        </div>
+
+                        <div class="selected-coffee-shop">
+                            <span>The coffee shop you selected is: </span>
+                            <div class="selected-coffee-shop-name"></div>
+                            <span>At: </span>
+                            <div class="selected-coffee-shop-vicinity"></div><br />
+                            <span>Use the input fields at the right to get directions.</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="final-page-results-container">
-                <div id="final-map" class="final-page-results">
-                    <!-- google map w/ directions gets inserted here -->
-                </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
 
-                <div id="text-directions-panel">
-                    <!-- google directions in text form gets inserted here -->
-                </div>
+                        <div class="final-page-results-container">
+                            <div class="col-md-6">
+                                <div id="final-map" class="final-page-results">
+                                    <!-- google map w/ directions gets inserted here -->
+                                </div>
+                            </div>
 
-                <div class="address-input-panel">
-                    <!-- user inputs their location here, if not auto-detected -->
-                    <p>enter in your address to get directions to the coffee shop you selected.</p>
-                    <form id="final-form">
+                            <div class="col-md-3">
+                                <div id="text-directions-panel">
+                                    <!-- google directions in text form gets inserted here -->
+                                </div>
+                            </div>
 
-                        <label for="travel-mode">Select your travel mode:</label><br />
-                        <select id="travel-mode">
-                            <!-- the options need to be uppercase in order for google API to work properly -->
-                            <option value="1" selected>DRIVING</option>
-                            <option value="2">WALKING</option>
-                        </select>
-                        <br /><br />
+                            <div class="col-md-3">
+                                <div class="address-input-panel">
+                                    <!-- user inputs their location here, if not auto-detected -->
+                                    <p>enter in your address to get directions to the coffee shop you selected.</p>
+                                    <form id="final-form">
 
-                        <label for="start" id="startLabel">start</label>
-                        <input type="text" id="start" placeholder="e.g. city, state or zipcode" /><br /><br />
-                        <label for="end" id="endLabel">end</label>
-                        <input type="text" id="end" disabled/><br />
-                        <button type="button" id="finalBtn" value="get-directions">submit</button>
+                                        <div class="form-group">
+                                            <label for="travel-mode">Select your travel mode:</label>
+                                            <select class="form-control" id="travel-mode">
+                                            <!-- the select options need to be uppercase in order for google API to work properly -->
+                                            <option value="1" selected>DRIVING</option>
+                                            <option value="2">WALKING</option>
+                                        </select>
+                                        </div>
 
-                    </form>
+
+                                        <div class="form-group">
+                                            <label for="start" id="startLabel">start</label>
+                                            <input class="form-control" type="text" id="start" placeholder="e.g. city, state or zipcode" />
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label for="end" id="endLabel">end</label>
+                                            <input class="form-control" type="text" id="end" disabled/>
+                                            <br />
+                                            <button class="btn btn-default" type="button" id="finalBtn" value="get-directions">submit</button>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>

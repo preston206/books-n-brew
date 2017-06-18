@@ -18,12 +18,6 @@ body {
     background-size: cover;
 }
 
-
-/*.landing-bg {
-    background: url("../img/landing2x1920.jpg") no-repeat center center fixed;
-    background-size: cover;
-}*/
-
 .books-bg {
     /*background: url("../img/books3x1920.jpg") no-repeat center center fixed;*/
     background: url("../img/books5x1920.jpg") no-repeat center center fixed;
@@ -53,20 +47,17 @@ body {
 }
 
 header {
-    /*margin-top: 0;*/
     width: 100%;
     background: rgba(0, 0, 0, 0.6);
-    color: #4195b7;
-    font-weight: bold;
-    margin-left: auto;
-    margin-right: auto;
+    text-align: center;
+    border-radius: 8px;
 }
 
 a:link, a:active, a:visited {
     color: maroon;
 }
 
-#extLinkImg {
+#external-link-img {
     width: 12px;
 }
 
@@ -75,23 +66,20 @@ a:hover {
 }
 
 .title {
-    width: 100%;
+    /*width: 100%;*/
     margin-top: 0;
     padding-top: 20px;
     /*border: 1px solid white;*/
     font-family: 'Dancing Script', cursive;
     font-size: 110px;
-    text-align: center;
+    color: #4195b7;
+    font-weight: bold;
     letter-spacing: 7px;
 }
 
 .subtitle {
     /*padding-top: 5px;*/
-    text-align: center;
-    width: 100%;
     padding-bottom: 10px;
-    margin-left: auto;
-    margin-right: auto;
     color: maroon;
     font-weight: bold;
     font-size: 18px;
@@ -104,12 +92,25 @@ h1 {
     margin-bottom: 0;
 }
 
-.app-state {
-    /*margin-top: 40px;*/
-    /*padding-top: 50px;*/
-    padding-bottom: 30px;
-    font-size: 18px;
+.instructions {
+    padding-top: 30px;
     color: #4195b7;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.instruction-merienda {
+    font-family: 'Merienda One', cursive;
+    font-size: 37px;
+    margin-right: 20px;
+}
+
+.instruction-helvetica {
+    /*font-family: 'Oswald', sans-serif;*/
+    font-family: Helvetica;
+    font-size: 24px;
+    font-weight: bold;
 }
 
 .active {
@@ -119,14 +120,6 @@ h1 {
     background-color: gray;
     /*font-size: 18px;*/
 }
-
-
-/*main {
-    background: url(landing1920.jpg) no-repeat left fixed;
-    background-size: cover;
-    width: 100%;
-    height: 100%;
-}*/
 
 .hide {
     display: none;
@@ -138,68 +131,77 @@ h1 {
     overflow: hidden;
 }
 
-.landing-page, .find-book-page, .find-coffee-shop-page, .final-page {
-    /*margin-top: 40px;
-    margin-bottom: 20px;*/
-    /*padding-left: 20px;*/
-    margin-left: auto;
-    margin-right: auto;
-    /*height: 100%;*/
-    /*background-color: black;*/
-    background: rgba(0, 0, 0, 0.6);
-    /*opacity: .3;*/
-    /*padding-top: 50px;*/
-    padding-bottom: 50px;
-    color: #4195b7;
+.hidden-tagline {
+    visibility: hidden;
 }
 
-.landing-page {
-    width: 35%;
+.landing-page, .find-book-page, .find-coffee-shop-page, .final-page {
+    /*margin-left: auto;
+    margin-right: auto;*/
+    background: rgba(0, 0, 0, 0.6);
+    color: #4195b7;
+    border-radius: 8px;
+}
+
+
+/*.landing-page {
+    width: 100%;
+    padding-bottom: 50px;
 }
 
 .find-book-page {
-    width: 50%;
+    width: 100%;
+    padding-bottom: 10px;
 }
 
 .find-coffee-shop-page {
-    width: 60%;
+    width: 100%;
+    padding-bottom: 10px;
 }
 
 .final-page {
-    width: 65%;
+    width: 100%;
+    padding-bottom: 10px;
+}*/
+
+#landing-btn-container {
+    text-align: center;
+    margin-top: 50px;
+    padding-bottom: 2%;
 }
 
-#landing-form {
-    margin-left: 40px;
+#book-search-tagline {
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'Merienda One', cursive;
+    font-size: 27px;
 }
 
-.book-search-tagline {
-    display: none;
-}
-
-#book-input-label {
-    padding-bottom: 20px;
+#book-select-tagline {
+    /*display: none;*/
+    font-family: Helvetica;
+    font-size: 20px;
 }
 
 .coffee-shop-results, .final-page-results {
-    /*margin-top: 40px;*/
-    width: 50%;
+    width: 100%;
     height: 545px;
     overflow: auto;
-    /*border: 1px solid black;
-    border-radius: 8px;*/
-    /*background-color: #BD986F;*/
+    /*border: 1px solid black;*/
+    border-radius: 8px;
+    margin-bottom: 2%;
 }
 
 .book-results {
     width: 100%;
     height: 545px;
     overflow: auto;
-    padding: 5px;
+    margin-bottom: 2%;
 }
 
 .book-info {
-    margin-bottom: 15px;
+    margin-bottom: 18px;
 }
 
 .select-book {
@@ -210,15 +212,25 @@ h1 {
     display: none;
     width: 45%;
     font-size: 18px;
-    margin-top: 10px;
+    margin-top: 75px;
+}
+
+.coffee-shop-search-tagline-1 {
+    display: inline-block;
+    margin-top: 20px;
+    /*margin-bottom: 20px;*/
+    font-family: 'Merienda One', cursive;
+    font-size: 27px;
 }
 
 .coffee-shop-search-tagline-2 {
-    display: none;
+    /*visibility: hidden;*/
+    font-family: Helvetica;
+    font-size: 20px;
 }
 
 #map {
-    height: 540px;
+    /*height: 540px;*/
     display: inline-block;
 }
 
@@ -227,9 +239,12 @@ h1 {
 }
 
 .side-panel-wrap {
+    margin-top: 90px;
+    margin-bottom: 2%;
     display: inline-block;
-    height: 400px;
-    width: 352px;
+    height: 545px;
+    /*width: 352px;*/
+    width: 100%;
     text-align: center;
     /*vertical-align fixes alingment bug in MS Edge*/
     vertical-align: top;
@@ -250,7 +265,7 @@ h1 {
     /*margin-top: 40px;*/
     /*width: 350px;*/
     width: 100%;
-    height: 421px;
+    height: 513px;
     padding: 7px;
     /*display: inline-block;*/
     border: 1px solid black;
@@ -260,52 +275,64 @@ h1 {
 }
 
 .selected-results {
-    width: 90%;
+    width: 100%;
+    /*height: 100px;*/
+    margin-top: 5px;
     margin-bottom: 5px;
-    margin-left: auto;
-    margin-right: auto;
+    /*margin-left: auto;
+    margin-right: auto;*/
+    padding: 10px;
+    border-radius: 8px;
+    background-color: black;
+    /*overflow: auto;*/
 }
 
 .selected-book {
-    height: 100px;
-    padding: 10px;
+    /*height: 100px;*/
+    /*padding: 10px;*/
     float: left;
-    background-color: black;
-    border-radius: 8px;
+    /*border-radius: 8px;*/
     font-weight: bold;
-    margin-left: auto;
+    margin-left: 5%;
+    padding-top: 20px;
+    padding-bottom: 20px;
     /*margin-right: auto;*/
-    -webkit-transition: background-color 0.3s ease 0s;
+    /*-webkit-transition: background-color 0.3s ease 0s;
     -moz-transition: background-color 0.3s ease 0s;
-    transition: background-color 0.3s ease 0s;
+    transition: background-color 0.3s ease 0s;*/
 }
 
 .selected-book-name {
-    display: inline-block;
+    color: white;
 }
 
 .selected-coffee-shop {
-    height: 100px;
-    margin-left: 5px;
+    /*height: 100px;*/
+    /*margin-left: 5px;*/
+    /*padding-left: 5px;*/
     display: inline-block;
-    padding: 10px;
-    background-color: black;
-    border-radius: 8px;
+    /*padding: 10px;*/
+    /*border-radius: 8px;*/
     font-weight: bold;
-    margin-left: 80px;
-    margin-right: auto;
-    -webkit-transition: background-color 0.3s ease 0s;
+    margin-left: 5%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    /*border-left: 1px solid white;*/
+    /*margin-right: auto;*/
+    /*-webkit-transition: background-color 0.3s ease 0s;
     -moz-transition: background-color 0.3s ease 0s;
-    transition: background-color 0.3s ease 0s;
+    transition: background-color 0.3s ease 0s;*/
 }
 
 .selected-coffee-shop-name {
-    display: inline-block;
+    /*display: inline-block;*/
+    color: white;
 }
 
-.selected-book:hover, .selected-coffee-shop:hover {
+
+/*.selected-book:hover, .selected-coffee-shop:hover {
     background-color: #202020;
-}
+}*/
 
 .selected-coffee-shop-vicinity {
     display: inline-block;
@@ -313,25 +340,27 @@ h1 {
 
 #text-directions-panel {
     /*width: 350px;*/
-    width: 24%;
-    height: 400px;
+    width: 100%;
+    height: 545px;
     padding: 7px;
     display: inline-block;
     border: 1px solid black;
     border-radius: 8px;
     overflow: auto;
+    margin-bottom: 2%;
     /*background-color: #BD986F;*/
 }
 
 .address-input-panel {
     display: inline-block;
     /*width: 250px;*/
-    width: 24%;
-    height: 400px;
+    width: 100%;
+    height: 545px;
     padding: 7px;
     border: 1px solid black;
     border-radius: 8px;
     overflow: auto;
+    margin-bottom: 2%;
     /*background-color: #BD986F;*/
 }
 
@@ -344,9 +373,10 @@ label#startLabel, label#endLabel {
     margin-left: 15px;
 }
 
-input#start, input#end {
+
+/*input#start, input#end {
     width: 92%;
-}
+}*/
 
 button#finalBtn {
     margin-top: 5px;

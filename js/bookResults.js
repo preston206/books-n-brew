@@ -43,6 +43,7 @@ function displayData(data) {
                     $('body').addClass('coffee-bg');
                     headerState(2);
                     getLoc();
+                    
                     console.log("state.selectedBook", state.selectedBook);
                 })
                 results.push(html);
@@ -68,7 +69,7 @@ $('#book-search-form').submit(function (event) {
     state.bookSearchInput = userInput;
 
     // display tagline
-    $('.book-search-tagline').show();
+    $('#book-select-tagline').removeClass('hidden-tagline');
     getData(userInput, displayData);
 })
 

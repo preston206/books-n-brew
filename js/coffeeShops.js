@@ -88,7 +88,8 @@ function initMap() {
     searchBox.addListener('places_changed', function () {
 
         // display tagline
-        $('.coffee-shop-search-tagline-2').show();
+        // $('.coffee-shop-search-tagline-2').show();
+        $('.coffee-shop-search-tagline-2').removeClass('hidden-tagline');
 
         var places = searchBox.getPlaces();
 
