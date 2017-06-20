@@ -3,7 +3,7 @@
 
 function insertBookAndCoffeeShopInfo() {
     $('.selected-book-name').html(state.selectedBook.volumeInfo.title);
-    $('.selected-book-url').html(`<a href="${state.selectedBook.saleInfo.buyLink}" target="_blank">https://play.google.com/store/books/</a> <img src="img/extLink.png" id="external-link-img"/>`);
+    $('.selected-book-url').html(`<a href="${state.selectedBook.saleInfo.buyLink}" target="_blank">https://play.google.com/store/books/</a>`);
     $('.selected-coffee-shop-name').html(state.selectedCoffeeShop.name);
     $('.selected-coffee-shop-vicinity').html(state.selectedCoffeeShop.vicinity);
 }

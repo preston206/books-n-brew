@@ -1,5 +1,5 @@
 
-// if browser cant get user location, this will hard code it
+// if browser can't get user location, this will hard code it
 function defaultLoc() {
     state.userLat = 47.708346;
     state.userLng = -122.181258;
@@ -153,8 +153,8 @@ function initMap() {
                             state.selectedCoffeeShop = place;
 
                             place.reviews.map(function (review) {
-                                let html = $(`<div><span class="coffee-review-background">Review written ${review.relative_time_description}</span><br />
-                    <span class="coffee-review-border coffee-reviews-background">Customer Rating: ${review.rating} stars</span>
+                                let html = $(`<div class="coffee-review"><div class="coffee-review-background"><span>Review written ${review.relative_time_description}</span><br />
+                    <span>Customer Rating: ${review.rating} stars</span></div>
                         <div class="coffee-review-text">${review.text}</div></div><br />`);
 
                                 results.push(html);

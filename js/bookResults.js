@@ -32,7 +32,7 @@ function displayData(data) {
         <span>$${priceRounded} ${book.saleInfo.retailPrice.currencyCode}</span><br />
         <span>" ${book.searchInfo.textSnippet} "</span><br />
         <img src="${book.volumeInfo.imageLinks.thumbnail}" /><br />
-        <button type="button" class="select-book">select</button>
+        <button type="button" class="select-book btn btn-default btn-sm">select</button>
         </div><br />`);
 
                 html.find('.select-book').click(function (event) {
@@ -43,7 +43,7 @@ function displayData(data) {
                     $('body').addClass('coffee-bg');
                     headerState(2);
                     getLoc();
-                    
+
                     console.log("state.selectedBook", state.selectedBook);
                 })
                 results.push(html);
