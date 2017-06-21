@@ -334,7 +334,7 @@ h1 {
     background: rgba(0, 0, 0, 0.5);
     /*overflow: auto;*/
     color: #C7A572;
-    font-size: 1.3em;
+    font-size: 1.22em;
 }
 
 .selected-book {
@@ -361,7 +361,7 @@ h1 {
 .final-page-guide {
     font-weight: bold;
     background-color: black;
-    font-size: 1em;
+    font-size: 0.9em;
 }
 
 .selected-coffee-shop {
