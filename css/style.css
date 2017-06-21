@@ -361,8 +361,9 @@ h1 {
 .final-page-guide {
     /*font-weight: bold;
     background-color: black;*/
-    font-size: 0.9em;
+    font-size: 0.8em;
     color: gray;
+    word-wrap: break-word;
 }
 
 .selected-coffee-shop {
