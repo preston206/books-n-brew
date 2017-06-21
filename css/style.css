@@ -359,9 +359,10 @@ h1 {
 }
 
 .final-page-guide {
-    font-weight: bold;
-    background-color: black;
+    /*font-weight: bold;
+    background-color: black;*/
     font-size: 0.9em;
+    color: gray;
 }
 
 .selected-coffee-shop {
