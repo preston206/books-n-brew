@@ -27,12 +27,13 @@ function displayData(data) {
                 let bookRetailAmount = book.saleInfo.retailPrice.amount;
                 let priceRounded = Math.round(bookRetailAmount);
 
-                let html = $(`<div class="book-info"><span>${book.volumeInfo.title}</span><br />
-        <span>by ${book.volumeInfo.authors[0]}</span><br />
+                let html = $(`<div class="book-info"><div class="book-title-author-wrap">
+                <span class="book-title">${book.volumeInfo.title}</span><br />
+        <span class="book-author">by ${book.volumeInfo.authors[0]}</span></div>
         <span>$${priceRounded} ${book.saleInfo.retailPrice.currencyCode}</span><br />
-        <span>" ${book.searchInfo.textSnippet} "</span><br />
-        <img src="${book.volumeInfo.imageLinks.thumbnail}" /><br />
-        <button type="button" class="select-book btn btn-default btn-sm">select</button>
+        <span class="book-description-snippet">" ${book.searchInfo.textSnippet} "</span>
+        <div class="book-image"><img src="${book.volumeInfo.imageLinks.thumbnail}" /></div>
+        <button type="button" class="select-book btn btn-primary btn-sm">select</button>
         </div><br />`);
 
                 html.find('.select-book').click(function (event) {

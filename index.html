@@ -27,9 +27,9 @@
                 <div class="col-md-12">
                     <ol class="list-unstyled">
                         <!-- user instructions -->
-                        <li class="step-1"><span class="instruction-merienda">Step 1:</span> <span class="instruction-helvetica">find an e-Book to download.</span></li>
-                        <li class="step-2"><span class="instruction-merienda">Step 2:</span> <span class="instruction-helvetica">find a coffee shop to read at.</span></li>
-                        <li class="step-3"><span class="instruction-merienda">Step 3:</span> <span class="instruction-helvetica">purchase and get directions.</span></li>
+                        <li class="step-1"><span class="instruction-merienda">Step 1:</span> <span class="instruction-helvetica">Find an e-Book to download.</span></li>
+                        <li class="step-2"><span class="instruction-merienda">Step 2:</span> <span class="instruction-helvetica">Find a coffee shop to read at.</span></li>
+                        <li class="step-3"><span class="instruction-merienda">Step 3:</span> <span class="instruction-helvetica">Purchase and get directions.</span></li>
                     </ol>
 
                     <div id="landing-btn-container">
@@ -43,7 +43,7 @@
         <!-- book search page -->
         <div class="container find-book-page hide">
             <div class="row">
-                <div class="col-md-9">
+                <div class="col-md-10 book-page-inner-container">
 
                     <form class="form-inline" id="book-search-form">
 
@@ -105,18 +105,18 @@
                 <div class="col-md-12">
                     <div class="selected-results">
                         <div class="selected-book">
-                            <span>The e-Book you selected is: </span>
+                            <span class="final-page-book-name">The e-Book you selected is: </span>
                             <div class="selected-book-name"></div>
-                            <span>You can purchase and download the e-Book here:</span><br />
+                            <span class="final-page-book-url">You can purchase and download the e-Book here:</span><br />
                             <div class="selected-book-url"></div>
                         </div>
 
                         <div class="selected-coffee-shop">
-                            <span>The coffee shop you selected is: </span>
+                            <span class="final-page-shop-name">The coffee shop you selected is: </span>
                             <div class="selected-coffee-shop-name"></div>
-                            <span>At: </span>
+                            <span class="final-page-shop-address">At:</span>
                             <div class="selected-coffee-shop-vicinity"></div><br />
-                            <span>Use the input fields at the right to get directions.</span>
+                            <span class="final-page-guide">If your location was not detected, use the input fields to get directions to the coffee shop you selected.</span>
                         </div>
                     </div>
                 </div>
@@ -142,11 +142,11 @@
                             <div class="col-md-3">
                                 <div class="address-input-panel">
                                     <!-- user inputs their location here, if not auto-detected -->
-                                    <p>enter in your address to get directions to the coffee shop you selected.</p>
+                                    <p class="address-instructions">Enter in your address to get directions to the coffee shop you selected.</p>
                                     <form id="final-form">
 
                                         <div class="form-group">
-                                            <label for="travel-mode">Select your travel mode:</label>
+                                            <label for="travel-mode" id="travelModeLabel">Select your travel mode:</label>
                                             <select class="form-control" id="travel-mode">
                                             <!-- the select options need to be uppercase in order for google API to work properly -->
                                             <option value="1" selected>DRIVING</option>
@@ -156,13 +156,13 @@
 
 
                                         <div class="form-group">
-                                            <label for="start" id="startLabel">start</label>
+                                            <label for="start" id="startLabel">Start</label>
                                             <input class="form-control" type="text" id="start" placeholder="e.g. city, state or zipcode" />
                                         </div>
 
 
                                         <div class="form-group">
-                                            <label for="end" id="endLabel">end</label>
+                                            <label for="end" id="endLabel">End</label>
                                             <input class="form-control" type="text" id="end" disabled/>
                                             <br />
                                             <button class="btn btn-primary" type="button" id="finalBtn" value="get-directions">submit</button>
