@@ -27,5 +27,6 @@ The purpose of the Books n Brew app is to connect someone with an e-book and a c
 - CSS
 - JavaScript
 - jQuery
+- Bootstrap
 - Google Books API
 - Google Maps and Directions APIs
