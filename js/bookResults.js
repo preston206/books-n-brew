@@ -10,11 +10,11 @@ function getData(search, callback) {
         maxResults: 7,
         orderBy: 'relevance'
     }
-    console.log("query string", query);
+
     $.getJSON(base_url, query, callback);
 }
 
-// display search results
+// display book search results
 function displayData(data) {
     var results = [];
 
@@ -45,7 +45,6 @@ function displayData(data) {
                     headerState(2);
                     getLoc();
 
-                    console.log("state.selectedBook", state.selectedBook);
                 })
                 results.push(html);
             }
@@ -59,7 +58,6 @@ function displayData(data) {
 
     state.books = data.items;
     // localStorage.state = JSON.stringify(state);
-    // console.log("state.books", state.books);
     $('.book-results').html(results);
 }
 
@@ -77,6 +75,5 @@ $('#book-search-form').submit(function (event) {
 $(function () {
     if (state.books) {
         displayData({ items: state.books })
-        // $('form input').val(state.bookSearchInput);
     }
 })

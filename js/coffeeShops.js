@@ -51,8 +51,6 @@ function getLoc() {
 // initialize the map
 function initMap() {
 
-    console.log("map init");
-
     var map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: state.userLat, lng: state.userLng },
         zoom: 13,
@@ -141,10 +139,7 @@ function initMap() {
 
                 google.maps.event.addListener(marker, 'click', function () {
 
-                    console.log("marker click listener is working");
-
-                    console.log(place.types);
-
+                    // get coffee shop details
                     service.getDetails({ placeId: place.place_id }, function (place, status) {
                         if (status == google.maps.places.PlacesServiceStatus.OK) {
 
@@ -152,6 +147,7 @@ function initMap() {
 
                             state.selectedCoffeeShop = place;
 
+                            // populate side panel with coffee shop reviews
                             place.reviews.map(function (review) {
                                 let html = $(`<div class="coffee-review"><div class="coffee-review-background"><span>Review written ${review.relative_time_description}</span><br />
                     <span>Customer Rating: ${review.rating} stars</span></div>
@@ -161,6 +157,7 @@ function initMap() {
                             });
                             $('#coffee-shop-reviews').html(results);
 
+                            // map popup window with coffee shop info
                             contentString =
                                 `<img src="${place.icon}" /><br />
                     ${place.name}<br />
@@ -172,6 +169,8 @@ function initMap() {
 
                     })
                     $('#coffeeShopBtn').attr('disabled', false);
+
+                    // clearing the map popup window
                     infoWindow.setContent();
                     infoWindow.open(map, this);
 
@@ -183,10 +182,10 @@ function initMap() {
     });
 }
 
+// listens for button click to select the coffee shop, then transitions to next page
 $('#coffeeShopBtn').click(function (event) {
     state.selectedCoffeeShopAddress = state.selectedCoffeeShop.formatted_address;
     // localStorage.state = JSON.stringify(state);
-    console.log("selected coffee shop", state.selectedCoffeeShop);
     $('.find-coffee-shop-page').addClass('hide');
     $('.final-page').removeClass('hide-map');
     $('body').addClass('final-bg');

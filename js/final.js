@@ -1,6 +1,5 @@
-// console.log("selected coffee shop", state.selectedCoffeeShop);
-// console.log("selected book", state.selectedBook);
 
+// function will populate the top pane on the final page with the selected e-book and coffee shop
 function insertBookAndCoffeeShopInfo() {
     $('.selected-book-name').html(state.selectedBook.volumeInfo.title);
     $('.selected-book-url').html(`<a href="${state.selectedBook.saleInfo.buyLink}" target="_blank">https://play.google.com/store/books/</a>`);
@@ -28,6 +27,7 @@ function initFinalMap() {
     directionsDisplay.setMap(map);
     directionsDisplay.setPanel(document.getElementById('text-directions-panel'));
 
+    // listens for change, then toggles between driving and walking directions
     var onChangeHandler = function () {
         calculateAndDisplayRoute(directionsService, directionsDisplay);
     };
@@ -38,10 +38,10 @@ function initFinalMap() {
 
     if (state.userLoc) {
         $('#start').val("your current location").attr("disabled", true);
-        console.log("userLoc1", state.userLoc);
         getDirectionsOnLoad();
     }
 
+    // creating event listeners
     document.getElementById('start').addEventListener('change', onChangeHandler);
     document.getElementById('end').addEventListener('change', onChangeHandler);
     document.getElementById('finalBtn').addEventListener('click', onChangeHandler);
@@ -53,13 +53,13 @@ function initFinalMap() {
     $('#end').val(state.selectedCoffeeShop.name)
 }
 
+// side panel with directions to coffee shop
 function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 
     if (!state.userLoc) {
         state.userLoc = $('#start').val();
     }
 
-    console.log("userLoc2", state.userLoc);
     var selectedTravelMode = $('#travel-mode option:selected').text();
     directionsService.route({
         origin: state.userLoc,
