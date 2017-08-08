@@ -21,7 +21,6 @@ body {
 .books-bg {
     background: url("../img/books1920.jpg") no-repeat right center fixed;
     background-size: cover;
-    /*z-index: 1;*/
     -webkit-transition: all 0.9s ease-in 0.15s;
     -moz-transition: all 0.9s ease-in 0.15s;
     transition: all 0.9s ease-in 0.15s;
@@ -30,7 +29,6 @@ body {
 .coffee-bg {
     background: url("../img/coffee1920.jpg") no-repeat right center fixed;
     background-size: cover;
-    /*z-index: 2;*/
     -webkit-transition: all 0.9s ease-in 0.2s;
     -moz-transition: all 0.9s ease-in 0.2s;
     transition: all 0.9s ease-in 0.2s;
@@ -39,7 +37,6 @@ body {
 .final-bg {
     background: url("../img/final1920.jpg") no-repeat right center fixed;
     background-size: cover;
-    /*z-index: 3;*/
     -webkit-transition: all 0.9s ease-in 0.2s;
     -moz-transition: all 0.9s ease-in 0.2s;
     transition: all 0.9s ease-in 0.2s;
@@ -522,7 +519,6 @@ button#finalBtn {
     .coffee-bg {
         background: url("../img/booksMobile960.jpg") no-repeat center center fixed;
         background-size: cover;
-        /*z-index: 2;*/
         -webkit-transition: all 0.9s ease-in 0.2s;
         -moz-transition: all 0.9s ease-in 0.2s;
         transition: all 0.9s ease-in 0.2s;
@@ -530,7 +526,6 @@ button#finalBtn {
     .final-bg {
         background: url("../img/booksMobile960.jpg") no-repeat center center fixed;
         background-size: cover;
-        /*z-index: 3;*/
         -webkit-transition: all 0.9s ease-in 0.2s;
         -moz-transition: all 0.9s ease-in 0.2s;
         transition: all 0.9s ease-in 0.2s;
