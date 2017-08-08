@@ -289,7 +289,7 @@ h1 {
 }
 
 .final-page-guide {
-    font-size: 0.8em;
+    font-size: 0.65em;
     color: gray;
     word-wrap: break-word;
 }
@@ -332,6 +332,12 @@ h1 {
     font-size: 1.2em;
 }
 
+.address-instructions {
+    color: #337ab7;
+    font-weight: bold;
+    font-size: 18px;
+}
+
 #final-form {
     margin-top: 40px;
 }
@@ -365,6 +371,7 @@ button#finalBtn {
 }
 
 .adp-directions {
+    /* "adp" is google specific css class */
     color: white !important;
 }
 
@@ -375,12 +382,6 @@ button#finalBtn {
 
 .adp-stepicon {
     background-color: green !important;
-}
-
-.address-instructions {
-    color: #337ab7;
-    font-weight: bold;
-    font-size: 18px;
 }
 
 @media only screen and (max-width: 740px) {
