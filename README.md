@@ -1,11 +1,6 @@
 # Books n Brew
 #### Bringing together two things you love- books and coffee.
 
-### TOC
-1. [User Guide w/ Screenshots](#user)
-2. [Summary](#summary)
-3. [Technologies Used](#technologies)
-
 ### User Guide
 ##### On the landing page click the button to get started.
 ![Books n Brew landing page](http://bprdev.io/img/booksnbrew/ss/landing-width1200.png)
