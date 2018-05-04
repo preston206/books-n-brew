@@ -17,7 +17,8 @@ state = {
         name: "",
         vicinity: ""
     },
-    selectedCoffeeShopAddress: ""
+    selectedCoffeeShopAddress: "",
+    manual: false
 };
 
 function headerState(count) {

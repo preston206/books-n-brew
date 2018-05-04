@@ -37,26 +37,42 @@ function initFinalMap() {
     };
 
     if (state.userLoc) {
-        $('#start').val("your current location").attr("disabled", true);
+        // $('#start').val("your current location").attr("disabled", true);
+        // $('#address-input-panel-container').hide();
+        // $('#text-directions-panel-container').addClass('col-md-6');
+        // $('#text-directions-panel-container').removeClass('col-md-3');
+        $('.address-instructions').text('You can toggle between driving and walking instructions by switching this drop down menu:');
+        $('#start-container, #end-container').hide();
         getDirectionsOnLoad();
+    }
+
+    if (!state.userLoc) {
+        $('.address-instructions').text('Enter in your starting location and when you tab out of the field the map will update. You can also toggle between driving and walking directions.');
+        $('#end-container').hide();
+        state.manual = true;
     }
 
     // creating event listeners
     document.getElementById('start').addEventListener('change', onChangeHandler);
     document.getElementById('end').addEventListener('change', onChangeHandler);
-    document.getElementById('finalBtn').addEventListener('click', onChangeHandler);
+    // document.getElementById('finalBtn').addEventListener('click', onChangeHandler);
 
     $('#travel-mode').change(function () {
         calculateAndDisplayRoute(directionsService, directionsDisplay);
     })
 
-    $('#end').val(state.selectedCoffeeShop.name)
+    $('#end').val(state.selectedCoffeeShop.name);
 }
 
 // side panel with directions to coffee shop
 function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 
-    if (!state.userLoc) {
+    // if (!state.userLoc) {
+    //     state.userLoc = $('#start').val();
+    //     state.manual = true;
+    // }
+
+    if (state.manual) {
         state.userLoc = $('#start').val();
     }
 

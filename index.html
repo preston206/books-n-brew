@@ -28,9 +28,18 @@
                 <div class="col-md-12">
                     <ol class="list-unstyled">
                         <!-- user instructions -->
-                        <li class="step-1"><span class="instruction-merienda">Step 1:</span> <span class="instruction-helvetica">Find an e-Book to download.</span></li>
-                        <li class="step-2"><span class="instruction-merienda">Step 2:</span> <span class="instruction-helvetica">Find a coffee shop to read at.</span></li>
-                        <li class="step-3"><span class="instruction-merienda">Step 3:</span> <span class="instruction-helvetica">Purchase and get directions.</span></li>
+                        <li class="step-1">
+                            <span class="instruction-merienda">Step 1:</span>
+                            <span class="instruction-helvetica">Find an e-Book to download.</span>
+                        </li>
+                        <li class="step-2">
+                            <span class="instruction-merienda">Step 2:</span>
+                            <span class="instruction-helvetica">Find a coffee shop to read at.</span>
+                        </li>
+                        <li class="step-3">
+                            <span class="instruction-merienda">Step 3:</span>
+                            <span class="instruction-helvetica">Purchase and get directions.</span>
+                        </li>
                     </ol>
 
                     <div id="landing-btn-container">
@@ -57,7 +66,8 @@
                     </form>
 
                     <div class="book-results-container">
-                        <span class="hidden-tagline" id="book-select-tagline">select an e-book</span><br />
+                        <span class="hidden-tagline" id="book-select-tagline">select an e-book</span>
+                        <br />
                         <div class="book-results">
                             <!-- results from google books API get inserted here -->
                         </div>
@@ -81,8 +91,10 @@
 
                 <div class="col-md-8">
                     <div class="coffee-shop-results-container">
-                        <span class="coffee-shop-search-tagline-1">Where would you like to read today?</span><br />
-                        <span class="coffee-shop-search-tagline-2 hidden-tagline">select a coffee shop</span><br />
+                        <span class="coffee-shop-search-tagline-1">Where would you like to read today?</span>
+                        <br />
+                        <span class="coffee-shop-search-tagline-2 hidden-tagline">select a coffee shop</span>
+                        <br />
                         <div id="map" class="coffee-shop-results">
                             <!-- google map gets inserted here -->
                         </div>
@@ -108,7 +120,8 @@
                         <div class="selected-book">
                             <span class="final-page-book-name">The e-Book you selected is: </span>
                             <div class="selected-book-name"></div>
-                            <span class="final-page-book-url">You can purchase and download the e-Book here:</span><br />
+                            <span class="final-page-book-url">You can purchase and download the e-Book here:</span>
+                            <br />
                             <div class="selected-book-url"></div>
                         </div>
 
@@ -116,11 +129,13 @@
                             <span class="final-page-shop-name">The coffee shop you selected is: </span>
                             <div class="selected-coffee-shop-name"></div>
                             <span class="final-page-shop-address">At:</span>
-                            <div class="selected-coffee-shop-vicinity"></div><br />
-                            <div class="final-page-guide">
-                                <span>If your location was not detected:</span><br />
+                            <div class="selected-coffee-shop-vicinity"></div>
+                            <br />
+                            <!-- <div class="final-page-guide">
+                                <span>If your location was not detected:</span>
+                                <br />
                                 <span>use the input fields to get directions to the coffee shop you selected.</span>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -137,39 +152,38 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-3">
+                            <div class="col-md-3" id="text-directions-panel-container">
                                 <div id="text-directions-panel">
                                     <!-- google directions in text form gets inserted here -->
                                 </div>
                             </div>
 
-                            <div class="col-md-3">
+                            <div class="col-md-3" id="address-input-panel-container">
                                 <div class="address-input-panel">
                                     <!-- user inputs their location here, if not auto-detected -->
-                                    <p class="address-instructions">Enter in your address to get directions to the coffee shop you selected.</p>
+                                    <!-- <p class="address-instructions">Enter in your address to get directions to the coffee shop you selected.</p> -->
+                                    <p class="address-instructions"></p>
                                     <form id="final-form">
+
+                                        <div class="form-group" id="start-container">
+                                            <label for="start" id="startLabel">Start</label>
+                                            <input class="form-control" type="text" id="start" placeholder="e.g. street, city, state or zip" />
+                                        </div>
 
                                         <div class="form-group">
                                             <label for="travel-mode" id="travelModeLabel">Select your travel mode:</label>
                                             <select class="form-control" id="travel-mode">
-                                            <!-- the select options need to be uppercase in order for google API to work properly -->
-                                            <option value="1" selected>DRIVING</option>
-                                            <option value="2">WALKING</option>
-                                        </select>
+                                                <!-- the select options need to be uppercase in order for google API to work properly -->
+                                                <option value="1" selected>DRIVING</option>
+                                                <option value="2">WALKING</option>
+                                            </select>
                                         </div>
 
-
-                                        <div class="form-group">
-                                            <label for="start" id="startLabel">Start</label>
-                                            <input class="form-control" type="text" id="start" placeholder="e.g. city, state or zipcode" />
-                                        </div>
-
-
-                                        <div class="form-group">
+                                        <div class="form-group" id="end-container">
                                             <label for="end" id="endLabel">End</label>
-                                            <input class="form-control" type="text" id="end" disabled/>
+                                            <input class="form-control" type="text" id="end" />
                                             <br />
-                                            <button class="btn btn-primary" type="button" id="finalBtn" value="get-directions">submit</button>
+                                            <!-- <button class="btn btn-primary" type="button" id="finalBtn" value="get-directions">submit</button> -->
                                         </div>
 
                                     </form>
